@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Navbar</title>
+    <!-- Include the Tailwind CSS stylesheet -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        .custom-login-button {
+            background-color: black;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        .custom-search-bar {
+            width: 200px; /* Adjust the width as needed */
+        }
+
+
+    </style>
+</head>
+<body class="bg-gray-300">
+
+    <nav class="bg-gray-300 p-4 flex  items-center">
+        <!-- Logo -->
+        <div>
+            <h1 class="text-black text-2xl font-bold">W.</h1>
+        </div>
+        <!-- Search bar -->
+        <div class="flex-grow ml-4">
+            <input type="text" placeholder="&#128269; Search..." class="w-3/5 p-2 bg-gray-400 rounded mr-8 focus:outline-none focus:shadow-outline-gray">
+        </div>
+        <!-- Navigation links -->
+        <div class="flex items-center space-x-4 font-bold ">
+            <a href="#" class="text-black "><div class="bg-gray-300">Home</a>
+        </div>
+        <div class="flex items-center space-x-4 font-bold ">
+            <a href="#" class="text-black "><div class="bg-gray-300">Catégorie</a>
+        </div>
+            <a href="#" class="custom-login-button font-bold ">Login</a>
+            
+            <div class=" w-4/5 "><a href="#" class="text-black border-2 border-slate-400   p-2 font-bold">Sign Up</a>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Your content goes here -->
+
+</body>
+</html>

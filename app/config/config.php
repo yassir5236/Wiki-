@@ -8,8 +8,8 @@
   // App Root
   define('APPROOT', dirname(dirname(__FILE__)));
   // URL Root
-  define('URLROOT', 'http://localhost/DataWare_MVC2');
+  define('URLROOT', 'http://localhost/Wiki-');
   // Site Name
-  define('SITENAME', 'SR list');
+  define('SITENAME', 'W.');
   // App Version
   define('APPVERSION', '1.0.0');

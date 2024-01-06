@@ -10,9 +10,19 @@
 
   <!-- Custom CSS for Navbar -->
   <style>
-    .custom-navbar {
-      background-color: #ff0000; /* Red color code */
-    }
+
+.custom-login-button {
+            background-color: black;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        .custom-search-bar {
+            width: 200px; /* Adjust the width as needed */
+        }
+  
 
     /* Adjusted styles for smaller navbar width and inline links */
     .custom-navbar .container {
@@ -44,29 +54,35 @@
     }
   </style>
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-300">
 
-  <nav class="bg-red-500 p-4 custom-navbar">
-    <div class="container mx-auto flex justify-between items-center">
-      <a class="text-white text-2xl font-bold" href="<?php echo URLROOT; ?>"><?php echo SITENAME; ?></a>
+
+  <nav class="bg-gray-300 p-4 custom-navbar  ">
+    <div class="container mx-auto flex justify-between items-center text-black">
+      <a class="text-black text-2xl font-bold" href="<?php echo URLROOT; ?>"><?php echo SITENAME; ?></a>
+      <div class="flex-grow ml-4">
+            <input type="text" placeholder="&#128269; Search... " class="w-3/5 p-2 bg-gray-400 rounded mr-8 focus:outline-none focus:shadow-outline-gray">
+        </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="hidden-md flex items-center" id="navbarsExampleDefault">
-        <a class="text-white" href="<?php echo URLROOT; ?>/projets/index">Home</a>
-        <a class="text-white" href="<?php echo URLROOT; ?>/pages/about">About</a>
+        <a class="text-black" href="<?php echo URLROOT; ?>/projets/index">Home</a>
+        <a class="text-black" href="<?php echo URLROOT; ?>/pages/about">Catégorie</a>
         <div class="ml-auto">
           <?php if(isset($_SESSION['user_id'])) : ?>
-            <a class="text-white" href="<?php echo URLROOT; ?>/users/logout">Logout</a>
+            <a class="text-black text-black " href="<?php echo URLROOT; ?>/users/logout">Logout</a>
           <?php else : ?>
-            <a class="text-white" href="<?php echo URLROOT; ?>/users/register">Register</a>
-            <a class="text-white" href="<?php echo URLROOT; ?>/users/login">Login</a>
+            <a class="text-black custom-login-button font-bold " href="<?php echo URLROOT; ?>/users/login">Login</a>
+            <a class="text-black text-black border-2 border-slate-400 p-2 font-bold" href="<?php echo URLROOT; ?>/users/register">Register</a>
           <?php endif; ?>
         </div>
       </div>
     </div>
   </nav>
+
+  
 
   <!-- Your page content goes here -->
 
