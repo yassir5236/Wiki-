@@ -1,6 +1,5 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 
-
 <?php flash('tag_message'); ?>
 
 <div class="row mb-3">
@@ -14,23 +13,29 @@
     </div>
 </div>
 
-
 <?php if (isset($data['tags']) && is_array($data['tags'])): ?>
-<?php foreach ($data['tags'] as $tag): ?>
-    <div class="card card-body mb-3">
-        <h4 class="card-title"><?php echo $tag->tagName; ?></h4>
+    <?php foreach ($data['tags'] as $tag): ?>
+        <div class="card card-body mb-3">
+            <h4 class="card-title"><?php echo $tag->tagName; ?></h4>
+            <p>Category: <?php echo $tag->categoryName; ?></p>
 
-        <!-- Add any additional tag details or actions as needed -->
             <div class="mt-3">
-                <a href="<?php echo URLROOT; ?>/Tags/edit/<?php echo $tag->tagId; ?>" class="btn btn-dark">Modifier</a>
+                <!-- Edit Form -->
+                <form class="d-inline" action="<?php echo URLROOT; ?>/tags/edit/<?php echo $tag->tagId; ?>" method="post">
+                    <div class="form-group">
+                        <label for="tag_name">Edit Tag:</label>
+                        <input type="text" name="tag_name" class="form-control" value="<?php echo $tag->tagName; ?>">
+                    </div>
+                    <input type="submit" value="Enregistrer" class="btn btn-success">
+                </form>
 
-                <form class="d-inline" action="<?php echo URLROOT; ?>/Tags/delete/<?php echo $tag->tagId; ?>" method="post">
+                <!-- Delete Form -->
+                <form class="d-inline" action="<?php echo URLROOT; ?>/tags/delete/<?php echo $tag->tagId; ?>" method="post">
                     <input type="submit" value="Supprimer" class="btn btn-danger">
                 </form>
             </div>
-
-    </div>
-<?php endforeach; ?>
+        </div>
+    <?php endforeach; ?>
 <?php endif; ?>
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>

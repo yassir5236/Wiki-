@@ -22,13 +22,14 @@ class Categories extends Controller
         $this->view('category/index', $data);
     }
 
+
     public function add()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $data = [
                 'category_name' => trim($_POST['category_name']),
-                'category_id' => $_SESSION['user_id'], // Replace this with the appropriate category_id
+                'category_id' => $_SESSION['user_id'], 
                 'category_name_err' => ''
             ];
 
@@ -71,12 +72,11 @@ class Categories extends Controller
 
     public function edit($id)
     {
-        if ($_SERVER['REQUEST_METHOD'] == 'post') {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $data = [
                 'id' => $id,
                 'category_name' => trim($_POST['category_name']),
-                'category_id' => $_SESSION['user_id'], // Replace this with the appropriate category_id
                 'category_name_err' => ''
             ];
 
@@ -92,7 +92,7 @@ class Categories extends Controller
                     die('Something went wrong');
                 }
             } else {
-                $this->view('categories/edit', $data);
+                $this->view('category/edit', $data);
             }
         } else {
             $category = $this->categoryModel->getCategoryById($id);
@@ -110,7 +110,7 @@ class Categories extends Controller
                 'category_name' => $category->category_name
             ];
 
-            $this->view('categories/edit', $data);
+            $this->view('category/edit', $data);
         }
     }
 }

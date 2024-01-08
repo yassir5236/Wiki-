@@ -1,7 +1,9 @@
 <?php
 class Tags extends Controller
 {
-    public $tagModel;
+   public $tagModel;
+    public $categoryModel;
+
     public function __construct()
     {
         if (!isLoggedIn()) {
@@ -9,6 +11,7 @@ class Tags extends Controller
         }
 
         $this->tagModel = $this->model('Tag');
+        $this->categoryModel = $this->model('Category'); // Assurez-vous que 'Category' est correctement orthographié
     }
 
     public function index()
@@ -22,6 +25,7 @@ class Tags extends Controller
         ];
 
         $this->view('tags/index', $data);
+        $this->categoryModel = $this->model('Category');
     }
 
     public function add()
@@ -30,7 +34,7 @@ class Tags extends Controller
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $data = [
                 'tag_name' => trim($_POST['tag_name']),
-                'category_id' => $_SESSION['user_id'], // Replace this with the appropriate category_id
+                'category_id' => $_POST['category_id'], // Changez cela en fonction de la manière dont vous obtenez la catégorie
                 'title_err' => ''
             ];
 
@@ -50,7 +54,8 @@ class Tags extends Controller
             }
         } else {
             $data = [
-                'tag_name' => ''
+                'tag_name' => '',
+                'categories' => $this->categoryModel->getCategories() // Ajoutez cette ligne
             ];
 
             $this->view('tags/add', $data);
@@ -70,22 +75,22 @@ class Tags extends Controller
             redirect('tags');
         }
     }
-
     public function edit($id)
     {
-        if ($_SERVER['REQUEST_METHOD'] == 'post') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+    
             $data = [
                 'id' => $id,
                 'tag_name' => trim($_POST['tag_name']),
-                'category_id' => $_SESSION['user_id'], // Replace this with the appropriate category_id
+                'category_id' => $_SESSION['user_id'],
                 'title_err' => ''
             ];
-
+    
             if (empty($data['tag_name'])) {
                 $data['title_err'] = 'Please enter a name';
             }
-
+    
             if (empty($data['title_err'])) {
                 if ($this->tagModel->updateTag($data)) {
                     flash('tag_message', 'Tag Updated');
@@ -98,20 +103,21 @@ class Tags extends Controller
             }
         } else {
             $tag = $this->tagModel->getTagById($id);
-
+    
             if (!$tag) {
                 redirect('tags');
             }
-
+    
             if ($tag->category_id != $_SESSION['user_id']) {
                 redirect('tags');
             }
-
+    
             $data = [
                 'id' => $id,
-                'tag_name' => $tag->tag_name
+                'tag_name' => $tag->tag_name,
+                'title_err' => ''
             ];
-
+    
             $this->view('tags/edit', $data);
         }
     }

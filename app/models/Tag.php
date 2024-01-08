@@ -38,9 +38,9 @@ class Tag
     public function addTag($data)
     {
         $this->db->query('INSERT INTO tags (tag_name) VALUES(:tag_name)');
-        // $this->db->query('INSERT INTO tags (tag_name, category_id) VALUES(:tag_name, :category_id)');
+        $this->db->query('INSERT INTO tags (tag_name, category_id) VALUES(:tag_name, :category_id)');
         $this->db->bind(':tag_name', $data['tag_name']);
-        // $this->db->bind(':category_id', $data['category_id']);
+        $this->db->bind(':category_id', $data['category_id']);
 
         if ($this->db->execute()) {
             return true;

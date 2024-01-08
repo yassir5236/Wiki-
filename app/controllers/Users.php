@@ -169,8 +169,12 @@
       $_SESSION['user_role'] = $user->role;
       // var_dump($_SESSION['user_id']);
       // die();
-      // $this->view('Category/index');
-      redirect('Categories');
+      if($user->role=='admin'){
+      $this->view('dashboard/dashboard');
+      }else {
+        redirect('tags');
+      }
+      // redirect('Categories');
     }
 
     public function logout(){

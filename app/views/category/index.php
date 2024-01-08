@@ -14,20 +14,30 @@
 </div>
 
 <?php if (isset($data['categories']) && is_array($data['categories'])): ?>
-<?php foreach ($data['categories'] as $category): ?>
-    <div class="card card-body mb-3">
-        <h4 class="card-title"><?php echo $category->category_name; ?></h4>
+    <?php foreach ($data['categories'] as $category): ?>
+        <div class="card card-body mb-3">
+            <h4 class="card-title">
+                <?php echo $category->category_name; ?>
+            </h4>
 
-        <!-- Add any additional category details or actions as needed -->
-        <div class="mt-3">
-            <a href="<?php echo URLROOT; ?>/categories/edit/<?php echo $category->category_id; ?>" class="btn btn-dark">Edit</a>
 
-            <form class="d-inline" action="<?php echo URLROOT; ?>/categories/delete/<?php echo $category->category_id; ?>" method="post">
-                <input type="submit" value="Delete" class="btn btn-danger">
-            </form>
-        </div>
+            <div class="mt-3">
+            <form class="d-inline" action="<?php echo URLROOT; ?>/categories/edit/<?php echo $category->category_id; ?>" method="post">
+    <div class="form-group">
+        <input type="hidden" name="id" value="<?php echo $category->category_id; ?>">
+        <label for="category_name">Edit Category:</label>
+        <input type="text" id="category_name" name="category_name" class="form-control" value="<?php echo $category->category_name; ?>">
     </div>
-<?php endforeach; ?>
+    <input type="submit" value="Enregistrer" class="btn btn-success">
+</form>
+
+                <form class="d-inline" action="<?php echo URLROOT; ?>/categories/delete/<?php echo $category->category_id; ?>"
+                    method="post">
+                    <input type="submit" value="Delete" class="btn btn-danger">
+                </form>
+            </div>
+        </div>
+    <?php endforeach; ?>
 <?php endif; ?>
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>

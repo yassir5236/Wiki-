@@ -71,9 +71,9 @@
         <span class="navbar-toggler-icon"></span>
       </button>
   <div class="hidden-md flex items-center" id="navbarsExampleDefault">
-    <a class="text-black" href="<?php echo URLROOT; ?>/projets/index">Home</a>
+    <a class="text-black" href="<?php echo URLROOT; ?>/categories/index">Home</a>
     <?php if(isset($_SESSION['user_id']) && isAdmin()): ?>
-      <a class="text-black" href="<?php echo URLROOT; ?>/dashboard">Dashboard</a>
+      <a class="text-black" href="<?php echo URLROOT; ?>/Pages/dashboard">Dashboard</a>
     <?php endif; ?>
     <div class="ml-auto">
       <?php if(isset($_SESSION['user_id'])) : ?>

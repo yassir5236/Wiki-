@@ -1,22 +1,34 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 
-<a href="<?php echo URLROOT; ?>/tags/index" class="bg-red-500 hover:bg-blue-700 text-white  font-bold py-2 px-4 rounded"><i class="fa fa-backward mt-10 "></i> Back</a>
-<div class="card bg-gray-100 mt-5 p-5">
+<a href="<?php echo URLROOT; ?>/tags/index" class="btn btn-danger mt-10"><i class="fa fa-backward"></i> Back</a>
 
+<div class="card bg-light mt-5 p-5">
     <h2 class="text-3xl font-bold mb-4">ADD Tags</h2>
 
     <form action="<?php echo URLROOT; ?>/Tags/add" method="post">
         <div class="mb-4">
-            <label for="tag_name" class="block text-gray-700 text-sm font-bold mb-2">Tag Name: <sup>*</sup></label>
-            <input type="text" name="tag_name" class="w-full p-2 border rounded <?php echo (!empty($data['title_err'])) ? 'border-red-500' : 'border-gray-300'; ?>" value="<?php echo $data['tag_name']; ?>">
-        
-       
+            <label for="tag_name" class="form-label">Tag Name: <sup></sup></label>
+            <input type="text" name="tag_name" class="form-control <?php echo (!empty($data['title_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['tag_name']; ?>">
+
             <?php if (!empty($data['tag_name_err'])) : ?>
-                <p class="text-red-500 text-xs italic"><?php echo $data['title_err']; ?></p>
+                <div class="invalid-feedback"><?php echo $data['title_err']; ?></div>
             <?php endif; ?>
         </div>
 
-        <input type="submit" value="Create" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <div class="mb-4">
+            <label for="category_id" class="form-label">Select Category: <sup></sup></label>
+            <select name="category_id" class="form-control <?php echo (!empty($data['category_id_err'])) ? 'is-invalid' : ''; ?>">
+                <?php foreach ($data['categories'] as $category) : ?>
+                    <option value="<?php echo $category->category_id; ?>"><?php echo $category->category_name; ?></option>
+                <?php endforeach; ?>
+            </select>
+
+            <?php if (!empty($data['category_id_err'])) : ?>
+                <div class="invalid-feedback"><?php echo $data['category_id_err']; ?></div>
+            <?php endif; ?>
+        </div>
+
+        <input type="submit" value="Create" class="btn btn-primary">
     </form>
 </div>
 
