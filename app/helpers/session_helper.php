@@ -33,3 +33,8 @@
       return false;
     }
   }
+
+  // Helper function to check if the logged-in user is an admin
+function isAdmin() {
+  return isset($_SESSION['user_role']) && $_SESSION['user_role'] == 'admin';
+}

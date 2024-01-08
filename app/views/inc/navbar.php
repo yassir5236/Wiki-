@@ -57,7 +57,11 @@
 <body class="bg-gray-300">
 
 
-  <nav class="bg-gray-300 p-4 custom-navbar  ">
+
+
+
+  <!-- Navbar code -->
+ <nav class="bg-gray-300 p-4 custom-navbar  ">
     <div class="container mx-auto flex justify-between items-center text-black">
       <a class="text-black text-4xl font-bold" href="<?php echo URLROOT; ?>"><?php echo SITENAME; ?></a>
       <div class="flex-grow ml-4">
@@ -66,21 +70,22 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
-      <div class="hidden-md flex items-center" id="navbarsExampleDefault">
-        <a class="text-black" href="<?php echo URLROOT; ?>/projets/index">Home</a>
-        <a class="text-black" href="<?php echo URLROOT; ?>/pages/about">Catégorie</a>
-        <div class="ml-auto">
-          <?php if(isset($_SESSION['user_id'])) : ?>
-            <a class="text-black text-black " href="<?php echo URLROOT; ?>/users/logout">Logout</a>
-          <?php else : ?>
-            <a class="text-black custom-login-button font-bold " href="<?php echo URLROOT; ?>/users/login">Login</a>
-            <a class="text-black text-black border-2 rounded-lg  border-slate-400 p-4 " href="<?php echo URLROOT; ?>/users/register">Register</a>
-          <?php endif; ?>
-        </div>
-      </div>
+  <div class="hidden-md flex items-center" id="navbarsExampleDefault">
+    <a class="text-black" href="<?php echo URLROOT; ?>/projets/index">Home</a>
+    <?php if(isset($_SESSION['user_id']) && isAdmin()): ?>
+      <a class="text-black" href="<?php echo URLROOT; ?>/dashboard">Dashboard</a>
+    <?php endif; ?>
+    <div class="ml-auto">
+      <?php if(isset($_SESSION['user_id'])) : ?>
+        <a class="text-black" href="<?php echo URLROOT; ?>/users/logout">Logout</a>
+      <?php else : ?>
+        <a class="text-black custom-login-button font-bold" href="<?php echo URLROOT; ?>/users/login">Login</a>
+        <a class="text-black text-black border-2 rounded-lg  border-slate-400 p-4" href="<?php echo URLROOT; ?>/users/register">Register</a>
+      <?php endif; ?>
     </div>
-  </nav>
+  </div>
+</nav>
+
 
   
 

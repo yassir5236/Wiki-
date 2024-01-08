@@ -136,6 +136,7 @@
           if($loggedInUser){
             // Create Session
             $this->createUserSession($loggedInUser);
+
           } else {
             $data['password_err'] = 'Password incorrect';
 
@@ -165,9 +166,11 @@
       $_SESSION['user_id'] = $user->user_id;
       $_SESSION['user_email'] = $user->email;
       $_SESSION['user_name'] = $user->username;
+      $_SESSION['user_role'] = $user->role;
       // var_dump($_SESSION['user_id']);
       // die();
-      redirect('tags');
+      // $this->view('Category/index');
+      redirect('Categories');
     }
 
     public function logout(){

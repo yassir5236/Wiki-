@@ -22,7 +22,7 @@
 
         <!-- Add any additional tag details or actions as needed -->
             <div class="mt-3">
-                <a href="<?php echo URLROOT; ?>/tags/edit/<?php echo $tag->tagId; ?>" class="btn btn-dark">Modifier</a>
+                <a href="<?php echo URLROOT; ?>/Tags/edit/<?php echo $tag->tagId; ?>" class="btn btn-dark">Modifier</a>
 
                 <form class="d-inline" action="<?php echo URLROOT; ?>/Tags/delete/<?php echo $tag->tagId; ?>" method="post">
                     <input type="submit" value="Supprimer" class="btn btn-danger">
