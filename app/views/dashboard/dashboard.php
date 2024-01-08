@@ -18,7 +18,7 @@
             </a>
           </li>
           <li>
-            <a href="<?php echo URLROOT; ?>/tags/index" class="flex items-center text-lg py-2 px-4 rounded hover:bg-gray-700">
+            <a href="<?php echo URLROOT; ?>/tags/index2" class="flex items-center text-lg py-2 px-4 rounded hover:bg-gray-700">
               <span class="mr-2">🏷️</span>
               Manage Tags
             </a>
@@ -70,12 +70,13 @@
                     <p class="text-3xl font-bold">500</p>
                 </div>
                 
-
+                <?php if (isset($data['totalTags'])) : ?>
                 <div class="bg-green-500 p-6 rounded-md shadow-md text-white">
                     <h3 class="text-lg font-semibold mb-4">Total Tags</h3>
-                    <p class="text-3xl font-bold">350</p>
+                    <p class="text-3xl font-bold"><?php echo $data['totalTags'];?></p>
                 </div>
-                
+                <?php endif; ?>
+
                 <?php if (isset($data['totalCategories'])): ?>
                 <div class="bg-yellow-500 p-6 rounded-md shadow-md text-white">
                     <h3 class="text-lg font-semibold mb-4">Total Categories</h3>

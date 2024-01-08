@@ -18,10 +18,27 @@ class Tags extends Controller
     {
         
         $tags = $this->tagModel->getTags();
+        $totalTags = $this->tagModel->getTotalTags();
+
+        $data = [
+            'tags' => $tags,
+            'totalTags' => $totalTags,
+        ];
+    
+        $this->view('dashboard/dashboard', $data);
+        $this->categoryModel = $this->model('Category');
+    }
+
+    public function index2()
+    {
+
+        $tags = $this->tagModel->getTags();
+        $totalTags = $this->tagModel->getTotalTags();
         // var_dump($tags);
         
         $data = [
-            'tags' => $tags
+            'tags' => $tags,
+            'totalTags' => $totalTags,
         ];
 
         $this->view('tags/index', $data);

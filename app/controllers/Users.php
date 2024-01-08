@@ -169,8 +169,12 @@
       $_SESSION['user_role'] = $user->role;
       // var_dump($_SESSION['user_id']);
       // die();
-      if($user->role=='admin'){
+      if($user->role =='admin'){
       redirect('categories/index');
+      // redirect('Tags/index');
+      
+      
+      // redirect("dashboard/dashboard");
       }else {
         redirect('tags');
       }
