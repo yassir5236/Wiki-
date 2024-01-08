@@ -1,5 +1,6 @@
 <?php
   class Users extends Controller {
+    public $userModel;
     public function __construct(){
       $this->userModel = $this->model('User');
     }
@@ -161,10 +162,12 @@
     }
 
     public function createUserSession($user){
-      $_SESSION['user_id'] = $user->id;
+      $_SESSION['user_id'] = $user->user_id;
       $_SESSION['user_email'] = $user->email;
-      $_SESSION['user_name'] = $user->name;
-      redirect('projets');
+      $_SESSION['user_name'] = $user->username;
+      // var_dump($_SESSION['user_id']);
+      // die();
+      redirect('tags');
     }
 
     public function logout(){

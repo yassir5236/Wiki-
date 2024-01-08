@@ -1,5 +1,5 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
-  <div class="flex justify-center items-center h-screen bg-gray-200">
+  <div class="flex justify-center items-center rounded-lg h-screen bg-gray-200">
     <div class="w-full md:w-2/3 lg:w-1/2 xl:w-2/5 bg-white shadow-md rounded p-8">
       <h2 class="text-3xl font-semibold mb-4 text-center">Create An Account</h2>
       <p class="text-gray-600 text-center">Please fill out this form to register with us</p>

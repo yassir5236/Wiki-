@@ -1,6 +1,5 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
-<?php error_reporting(E_ALL);
-ini_set('display_errors', 1);   ?>
+
 
 <?php flash('tag_message'); ?>
 
@@ -21,15 +20,11 @@ ini_set('display_errors', 1);   ?>
     <div class="card card-body mb-3">
         <h4 class="card-title"><?php echo $tag->tagName; ?></h4>
 
-
-
         <!-- Add any additional tag details or actions as needed -->
-
-
             <div class="mt-3">
                 <a href="<?php echo URLROOT; ?>/tags/edit/<?php echo $tag->tagId; ?>" class="btn btn-dark">Modifier</a>
 
-                <form class="d-inline" action="<?php echo URLROOT; ?>/tags/delete/<?php echo $tag->tagId; ?>" method="post">
+                <form class="d-inline" action="<?php echo URLROOT; ?>/Tags/delete/<?php echo $tag->tagId; ?>" method="post">
                     <input type="submit" value="Supprimer" class="btn btn-danger">
                 </form>
             </div>

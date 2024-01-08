@@ -59,7 +59,7 @@
 
   <nav class="bg-gray-300 p-4 custom-navbar  ">
     <div class="container mx-auto flex justify-between items-center text-black">
-      <a class="text-black text-2xl font-bold" href="<?php echo URLROOT; ?>"><?php echo SITENAME; ?></a>
+      <a class="text-black text-4xl font-bold" href="<?php echo URLROOT; ?>"><?php echo SITENAME; ?></a>
       <div class="flex-grow ml-4">
             <input type="text" placeholder="&#128269; Search... " class="w-3/5 p-2 bg-gray-400 rounded mr-8 focus:outline-none focus:shadow-outline-gray">
         </div>
@@ -75,7 +75,7 @@
             <a class="text-black text-black " href="<?php echo URLROOT; ?>/users/logout">Logout</a>
           <?php else : ?>
             <a class="text-black custom-login-button font-bold " href="<?php echo URLROOT; ?>/users/login">Login</a>
-            <a class="text-black text-black border-2 border-slate-400 p-2 font-bold" href="<?php echo URLROOT; ?>/users/register">Register</a>
+            <a class="text-black text-black border-2 rounded-lg  border-slate-400 p-4 " href="<?php echo URLROOT; ?>/users/register">Register</a>
           <?php endif; ?>
         </div>
       </div>

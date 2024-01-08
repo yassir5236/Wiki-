@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Add Wiki - Wiki Platform</title>
+</head>
+<body class="font-sans bg-gray-100">
+
+<!-- Form Section -->
+<section class="container mx-auto my-8 p-8 bg-white rounded-md shadow-md">
+    <h2 class="text-2xl mb-6">Add a Wiki</h2>
+    <form action="/submit_wiki" method="post" class="space-y-4">
+        <!-- Wiki Title -->
+        <div>
+            <label for="wikiTitle" class="block text-sm font-medium text-gray-700">Wiki Title</label>
+            <input type="text" id="wikiTitle" name="wikiTitle" class="mt-1 p-2 w-full border rounded-md">
+        </div>
+
+        <!-- Wiki Content -->
+        <div>
+            <label for="wikiContent" class="block text-sm font-medium text-gray-700">Wiki Content</label>
+            <textarea id="wikiContent" name="wikiContent" rows="4" class="mt-1 p-2 w-full border rounded-md"></textarea>
+        </div>
+
+        <!-- Select Category -->
+        <div>
+            <label for="category" class="block text-sm font-medium text-gray-700">Select Category</label>
+            <select id="category" name="category" class="mt-1 p-2 w-full border rounded-md">
+                <!-- Add options dynamically using data from the backend -->
+                <option value="category1">Category 1</option>
+                <option value="category2">Category 2</option>
+                <!-- Add more options as needed -->
+            </select>
+        </div>
+
+        <!-- Tags -->
+        <div>
+            <label for="tags" class="block text-sm font-medium text-gray-700">Tags (comma-separated)</label>
+            <input type="text" id="tags" name="tags" class="mt-1 p-2 w-full border rounded-md">
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Add Wiki</button>
+    </form>
+</section>
+
+</body>
+</html>

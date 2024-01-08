@@ -1,5 +1,5 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
-  <div class="flex justify-center items-center h-screen bg-gray-200">
+  <div class="flex justify-center items-center h-screen rounded-lg bg-gray-200">
     <div class="w-full md:w-2/3 lg:w-1/2 xl:w-1/3 bg-white shadow-md rounded p-8">
       <div class="mb-6">
         <?php flash('register_success'); ?>

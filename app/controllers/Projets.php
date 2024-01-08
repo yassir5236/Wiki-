@@ -1,6 +1,7 @@
 <?php
 class Projets extends Controller
 {
+    public $projetModel;
     public function __construct()
     {
         if (!isLoggedIn()) {
