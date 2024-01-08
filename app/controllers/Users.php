@@ -170,7 +170,7 @@
       // var_dump($_SESSION['user_id']);
       // die();
       if($user->role=='admin'){
-      $this->view('dashboard/dashboard');
+      redirect('categories/index');
       }else {
         redirect('tags');
       }

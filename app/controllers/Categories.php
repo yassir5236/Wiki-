@@ -16,11 +16,31 @@ class Categories extends Controller
     public function index()
     {
         $categories = $this->categoryModel->getCategories();
+        $totalCategories = $this->categoryModel->getTotalCategories();
         $data = [
-            'categories' => $categories
+            'categories' => $categories,
+            'totalCategories' => $totalCategories,
         ];
-        $this->view('category/index', $data);
+       
+
+        // $this->view('category/index', $data);
+        $this->view('dashboard/dashboard', $data);
     }
+    public function index2()
+    {
+        $categories = $this->categoryModel->getCategories();
+        $totalCategories = $this->categoryModel->getTotalCategories();
+        $data = [
+            'categories' => $categories,
+            'totalCategories' => $totalCategories,
+        ];
+       
+
+         $this->view('category/index', $data);
+        
+    }
+
+
 
 
     public function add()
