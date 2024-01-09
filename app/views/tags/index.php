@@ -4,7 +4,7 @@
 
 <div class="row mb-3">
     <div class="col-md-6">
-        <h1>Tags</h1>
+        <h1></h1>
     </div>
     <div class="col-md-6 text-right">
         <a href="<?php echo URLROOT; ?>/tags/add" class="btn btn-primary">
@@ -31,8 +31,9 @@
 
                 <!-- Delete Form -->
                 <form class="d-inline" action="<?php echo URLROOT; ?>/tags/delete/<?php echo $tag->tagId; ?>" method="post">
-                    <input type="submit" value="Supprimer" class="btn btn-danger">
+                    <input type="submit" value="Supprimer" class="btn btn-danger" style="background-color: gray;">
                 </form>
+
             </div>
         </div>
     <?php endforeach; ?>

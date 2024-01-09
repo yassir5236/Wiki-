@@ -33,7 +33,7 @@
 
                 <form class="d-inline" action="<?php echo URLROOT; ?>/categories/delete/<?php echo $category->category_id; ?>"
                     method="post">
-                    <input type="submit" value="Delete" class="btn btn-danger">
+                    <input type="submit" value="Delete" class="btn btn-danger"  style="background-color:gray">
                 </form>
             </div>
         </div>
