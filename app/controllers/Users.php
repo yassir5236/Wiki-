@@ -172,11 +172,11 @@
       if($user->role =='admin'){
       redirect('categories/index');
       // redirect('Tags/index');
-      
-      
       // redirect("dashboard/dashboard");
-      }else {
-        redirect('tags');
+      }elseif($user->role =='user') {
+        redirect('Home');
+      }else{
+        // redirect('Home');
       }
       // redirect('Categories');
     }

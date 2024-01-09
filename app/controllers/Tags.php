@@ -29,6 +29,8 @@ class Tags extends Controller
         $this->view('dashboard/dashboard', $data);
     }
 
+    
+
     public function index2()
     {
 
@@ -47,6 +49,13 @@ class Tags extends Controller
         $this->view('tags/index', $data);
         // $this->categoryModel = $this->model('Category');
     }
+
+
+
+    
+
+
+
 
     public function add()
     {

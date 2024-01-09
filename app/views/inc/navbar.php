@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Page Title</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Tailwind CSS link (add this if you haven't included it yet) -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -59,8 +60,9 @@
   <nav class="bg-gray-300 p-4 custom-navbar">
     <div class="container mx-auto flex justify-between items-center text-black">
       <a class="text-black text-4xl font-bold" href="<?php echo URLROOT; ?>"><?php echo SITENAME; ?></a>
-      <div class="flex-grow ml-4">
-        <input type="text" placeholder="&#128269; Search... " class="w-3/5 p-2 bg-gray-400 rounded mr-8 focus:outline-none focus:shadow-outline-gray">
+      <div class="flex-grow ml-4 w-3/5 p-2 bg-gray-400 rounded mr-8">
+      <i class='fa-solid fa-magnifying-glass'></i>
+        <input type="text" placeholder="Search... " class = "bg-gray-400 text-black w-3/5 focus:border-none focus:outline-none placeholder-black">
       </div>
       <button class="navbar-toggler hidden" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
