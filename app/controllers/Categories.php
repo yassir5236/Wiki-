@@ -3,6 +3,7 @@
 class Categories extends Controller
 {
     public $categoryModel;
+    public $tagModel;
 
     public function __construct()
     {
@@ -11,15 +12,19 @@ class Categories extends Controller
         }
 
         $this->categoryModel = $this->model('Category');
+        $this->tagModel = $this->model('Tag');
+
     }
 
     public function index()
     {
         $categories = $this->categoryModel->getCategories();
         $totalCategories = $this->categoryModel->getTotalCategories();
+        $totalTags =  $this->tagModel->getTotalTags();
         $data = [
             'categories' => $categories,
             'totalCategories' => $totalCategories,
+            'totalTags'=> $totalTags,
         ];
        
 

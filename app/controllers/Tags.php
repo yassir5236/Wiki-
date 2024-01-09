@@ -16,17 +16,17 @@ class Tags extends Controller
 
     public function index()
     {
-        
+        $totalCategories = $this->categoryModel->getTotalCategories();
         $tags = $this->tagModel->getTags();
         $totalTags = $this->tagModel->getTotalTags();
 
         $data = [
             'tags' => $tags,
             'totalTags' => $totalTags,
+            'totalCategories' => $totalCategories,
         ];
     
         $this->view('dashboard/dashboard', $data);
-        $this->categoryModel = $this->model('Category');
     }
 
     public function index2()
@@ -34,15 +34,18 @@ class Tags extends Controller
 
         $tags = $this->tagModel->getTags();
         $totalTags = $this->tagModel->getTotalTags();
+        // $totalCategories = $this->categoryModel->getTotalCategories();
+        
         // var_dump($tags);
         
         $data = [
             'tags' => $tags,
             'totalTags' => $totalTags,
+            // 'totalCategories' => $totalCategories,
         ];
 
         $this->view('tags/index', $data);
-        $this->categoryModel = $this->model('Category');
+        // $this->categoryModel = $this->model('Category');
     }
 
     public function add()
