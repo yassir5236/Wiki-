@@ -92,7 +92,35 @@ class Tag
         $this->db->query('SELECT COUNT(*) as total FROM tags');
         $row = $this->db->single();
         return $row->total;
-    
        
+    }
+
+
+
+
+    public function getTagsByCategory($categoryId)
+    {
+        $sql = 'SELECT *,
+                tags.tag_id as tagId,
+                tags.tag_name as tagName,
+                categories.category_id as categoryId,
+                categories.category_name as categoryName
+                FROM tags
+                LEFT JOIN categories
+                ON tags.category_id = categories.category_id';
+    
+        if (!empty($categoryId)) {
+            $sql .= ' WHERE tags.category_id = :category_id';
+        }
+    
+        $this->db->query($sql);
+    
+        if (!empty($categoryId)) {
+            $this->db->bind(':category_id', $categoryId);
+        }
+    
+        $results = $this->db->resultSet();
+    
+        return $results;
     }
 }

@@ -174,7 +174,8 @@
       // redirect('Tags/index');
       // redirect("dashboard/dashboard");
       }elseif($user->role =='user') {
-        redirect('Home');
+        // redirect('Tags/index');
+        $this->view('tags/index');
       }else{
         // redirect('Home');
       }

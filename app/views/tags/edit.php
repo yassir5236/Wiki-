@@ -1,6 +1,6 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 
-<a href="<?php echo URLROOT; ?>/tags" class="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"><i class="fa fa-backward mt-10 "></i> Back</a>
+<a href="<?php echo URLROOT; ?>/tags" class="bg-black hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"><i class="fa fa-backward mt-10 "></i> Back</a>
 <div class="card bg-gray-100 mt-5 p-5">
 
     <h2 class="text-3xl font-bold mb-4">Edit Tags</h2>

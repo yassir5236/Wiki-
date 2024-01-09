@@ -24,7 +24,7 @@
             </a>
           </li>
           <li>
-            <a href="#" class="flex items-center text-lg py-2 px-4 rounded hover:bg-gray-700">
+            <a href="<?php echo URLROOT; ?>/Wikis/index" class="flex items-center text-lg py-2 px-4 rounded hover:bg-gray-700">
               <span class="mr-2">📚</span>
               Manage Wikis
             </a>

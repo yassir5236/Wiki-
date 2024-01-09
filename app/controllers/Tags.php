@@ -52,11 +52,6 @@ class Tags extends Controller
 
 
 
-    
-
-
-
-
     public function add()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -148,6 +143,30 @@ class Tags extends Controller
             ];
     
             $this->view('tags/edit', $data);
+        }
+    }
+
+
+
+    public function filterByCategory()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+    
+            $categoryId = isset($_POST['category_id']) ? $_POST['category_id'] : null;
+    
+            $tags = $this->tagModel->getTagsByCategory($categoryId);
+    
+            $data = [
+                'tags' => $tags
+            ];
+
+            var_dump($data);
+            die();
+    
+            echo json_encode($data);
+        } else {
+            redirect('tags');
         }
     }
 }

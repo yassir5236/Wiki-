@@ -89,4 +89,8 @@
 
       return $this->execute();
   }
+
+  public function lastInsertId(){
+    return $this->dbh->lastInsertId();
+  }
   }

@@ -1,9 +1,9 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 
-<a href="<?php echo URLROOT; ?>/tags/index" class="btn btn-danger mt-10"><i class="fa fa-backward"></i> Back</a>
+<a href="<?php echo URLROOT; ?>/tags/index" class="btn bg-black text-white mt-10"><i class="fa fa-backward"></i> Back</a>
 
 <div class="card bg-light mt-5 p-5">
-    <h2 class="text-3xl font-bold mb-4">ADD Tags</h2>
+    <h2 class="text-3xl font-bold text-green-600 mb-4">ADD Tags</h2>
 
     <form action="<?php echo URLROOT; ?>/Tags/add" method="post">
         <div class="mb-4">
@@ -28,7 +28,7 @@
             <?php endif; ?>
         </div>
 
-        <input type="submit" value="Create" class="btn btn-primary">
+        <input type="submit" value="Create " class=" btn bg-green-500 text-white">
     </form>
 </div>
 

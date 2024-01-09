@@ -1,6 +1,6 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 
-<a href="<?php echo URLROOT; ?>/tags/index" class="bg-red-500 hover:bg-blue-700 text-white  font-bold py-2 px-4 rounded"><i class="fa fa-backward mt-10 "></i> Back</a>
+<a href="<?php echo URLROOT; ?>/tags/index" class="p-2 rounded  bg-black text-white mt-10"><i class="fa fa-backward mt-10 "></i> Back</a>
 <div class="card bg-gray-100 mt-5 p-5">
 
     <h2 class="text-3xl font-bold mb-4">ADD Category</h2>
@@ -16,7 +16,7 @@
             <?php endif; ?>
         </div>
 
-        <input type="submit" value="Create" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <input type="submit" value="Create" class="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
     </form>
 </div>
 
