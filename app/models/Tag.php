@@ -123,4 +123,16 @@ class Tag
     
         return $results;
     }
+
+
+    public function tagExists($tagName)
+{
+    $this->db->query('SELECT * FROM tags WHERE tag_name = :tag_name');
+    $this->db->bind(':tag_name', $tagName);
+
+    $row = $this->db->single();
+
+    return ($row) ? true : false;
+}
+
 }

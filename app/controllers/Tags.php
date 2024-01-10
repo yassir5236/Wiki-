@@ -3,6 +3,7 @@ class Tags extends Controller
 {
    public $tagModel;
     public $categoryModel;
+    public $wikiModel;
 
     public function __construct()
     {
@@ -11,7 +12,8 @@ class Tags extends Controller
         }
 
         $this->tagModel = $this->model('Tag');
-        $this->categoryModel = $this->model('Category'); // Assurez-vous que 'Category' est correctement orthographié
+        $this->categoryModel = $this->model('Category');
+        $this->wikiModel = $this->model('Wiki'); // Assurez-vous que 'Category' est correctement orthographié
     }
 
     public function index()
@@ -19,11 +21,14 @@ class Tags extends Controller
         $totalCategories = $this->categoryModel->getTotalCategories();
         $tags = $this->tagModel->getTags();
         $totalTags = $this->tagModel->getTotalTags();
+        $totalWikis = $this->wikiModel->getTotalWikisCount();
 
         $data = [
             'tags' => $tags,
             'totalTags' => $totalTags,
             'totalCategories' => $totalCategories,
+            'totalWikis' => $totalWikis,
+
         ];
     
         $this->view('dashboard/dashboard', $data);
@@ -58,18 +63,25 @@ class Tags extends Controller
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $data = [
                 'tag_name' => trim($_POST['tag_name']),
-                'category_id' => $_POST['category_id'], // Changez cela en fonction de la manière dont vous obtenez la catégorie
+                'category_id' => $_POST['category_id'],
                 'title_err' => ''
             ];
-
+    
             if (empty($data['tag_name'])) {
                 $data['title_err'] = 'Please enter a name';
-            }
+            } else {
+                // Check if the tag already exists
+                if ($this->tagModel->tagExists($data['tag_name'])) {
+                    $data['title_err'] = 'Tag already exists';
+                 
 
+                }
+            }
+    
             if (empty($data['title_err'])) {
                 if ($this->tagModel->addTag($data)) {
                     flash('tag_message', 'Tag Added');
-                    redirect('tags');
+                    redirect('tags/index2');
                 } else {
                     die('Something went wrong');
                 }
@@ -79,12 +91,18 @@ class Tags extends Controller
         } else {
             $data = [
                 'tag_name' => '',
-                'categories' => $this->categoryModel->getCategories() // Ajoutez cette ligne
+                'categories' => $this->categoryModel->getCategories()
             ];
-
+    
             $this->view('tags/add', $data);
         }
+        // redirect('tags/index2');
     }
+    
+
+
+
+
 
     public function delete($id)
     {
@@ -99,6 +117,8 @@ class Tags extends Controller
             redirect('tags');
         }
     }
+
+
     public function edit($id)
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -118,7 +138,7 @@ class Tags extends Controller
             if (empty($data['title_err'])) {
                 if ($this->tagModel->updateTag($data)) {
                     flash('tag_message', 'Tag Updated');
-                    redirect('tags');
+                    redirect('tags/index2');
                 } else {
                     die('Something went wrong');
                 }

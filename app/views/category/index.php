@@ -13,6 +13,64 @@
     </div>
 </div>
 
+<!-- Sidebar Section -->
+<div class="fixed top-8 right-8 cursor-pointer block lg:hidden" onclick="toggleSidebar()">
+    <span class="block w-6 h-1 bg-black my-1"></span>
+    <span class="block w-6 h-1 bg-black my-1"></span>
+    <span class="block w-6 h-1 bg-black my-1"></span>
+  </div>
+
+  <!-- Sidebar -->
+  <aside class="hidden lg:block lg:w-1/4 lg:w-1/3 sm:w-full bg-gray-800 text-white p-4 lg:mr-4 mb-4">
+    <div class="mb-4">
+      <h2 class="text-2xl lg:text-3xl font-semibold">Admin Dashboard</h2>
+    </div>
+    <nav>
+      <ul class="space-y-2">
+        <li>
+          <a href="<?php echo URLROOT; ?>/categories/index2"
+            class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700">
+            <span class="mr-2">📁</span>
+            Manage Categories
+          </a>
+        </li>
+        <li>
+          <a href="<?php echo URLROOT; ?>/tags/index2"
+            class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700">
+            <span class="mr-2">🏷️</span>
+            Manage Tags
+          </a>
+        </li>
+        <li>
+          <a href="<?php echo URLROOT; ?>/Wikis/index2"
+            class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700">
+            <span class="mr-2">📚</span>
+            Manage Wikis
+          </a>
+        </li>
+        <li>
+          <a href="dashboard.php"
+            class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700">
+            <span class="mr-2">📊</span>
+            Dashboard Stats
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Your main content goes here -->
+<!-- Your main content goes here -->
+
+<script>
+  function toggleSidebar() {
+    const sidebar = document.querySelector('.lg\\:block'); // Use double backslash to escape the colon
+    const displayValue = window.getComputedStyle(sidebar).getPropertyValue('display');
+    sidebar.style.display = displayValue === 'none' || displayValue === '' ? 'block' : 'none';
+  }
+</script>
+
+
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     <?php if (isset($data['categories']) && is_array($data['categories'])): ?>
         <?php foreach ($data['categories'] as $category): ?>
@@ -44,6 +102,7 @@
         <?php endforeach; ?>
     <?php endif; ?>
 </div>
+
 
 
 

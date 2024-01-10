@@ -3,6 +3,9 @@
 class Wikis extends Controller
 {
     public $wikiModel;
+    public $categoryModel;
+    public $tagModel;
+    public $totalWikis;
 
     public function __construct()
     {
@@ -11,14 +14,41 @@ class Wikis extends Controller
         }
 
         $this->wikiModel = $this->model('Wiki');
+        $this->tagModel = $this->model('Tag');
+        $this->categoryModel = $this->model('Category');
+        
     }
 
     public function index() {
+        $categories = $this->categoryModel->getCategories();
+        $totalCategories = $this->categoryModel->getTotalCategories();
+        $totalTags =  $this->tagModel->getTotalTags();
+        $totalWikis = $this->wikiModel->getTotalWikisCount();
+
+        $data = [
+            'categories' => $categories,
+            'totalCategories' => $totalCategories,
+            'totalTags'=> $totalTags,
+            'totalWikis' => $totalWikis,
+
+        ];
+       
+        
+        $this->view('dashboard/dashboard', $data);
+
+    }
+
+    public function index2(){
+     
         $wikis = $this->wikiModel->getWikis();
         $data = [
             'wikis' => $wikis,
         ];
+       
+
+        // $this->view('category/index', $data);
         $this->view('wikis/index', $data);
+        
     }
 
     public function add()
@@ -98,5 +128,48 @@ class Wikis extends Controller
         } else {
             $this->view('wikis/edit', $data);
         }
+    }
+
+
+
+    public function delete($id)
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Call the model method to delete the wiki
+            if ($this->wikiModel->deleteWiki($id)) {
+                flash('wiki_message', 'Wiki Deleted');
+                redirect('wikis');
+            } else {
+                die('Something went wrong');
+            }
+        } else {
+            // Display confirmation form
+            $wiki = $this->wikiModel->getWikiById($id);
+
+            if (!$wiki) {
+                flash('wiki_message', 'Wiki not found', 'alert alert-danger');
+                redirect('wikis');
+            }
+
+            $data = [
+                'wiki' => $wiki,
+            ];
+
+            $this->view('wikis/delete', $data); // Create a view for confirmation if needed
+        }
+    }
+
+
+
+    public function statistics()
+    {
+        $totalWikis = $this->wikiModel->getTotalWikisCount();
+
+        $data = [
+            'totalWikis' => $totalWikis,
+        ];
+
+        $this->view('dashboard/dashboard', $data);
+
     }
 }

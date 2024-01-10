@@ -4,6 +4,7 @@ class Categories extends Controller
 {
     public $categoryModel;
     public $tagModel;
+    public $wikiModel;
 
     public function __construct()
     {
@@ -13,6 +14,7 @@ class Categories extends Controller
 
         $this->categoryModel = $this->model('Category');
         $this->tagModel = $this->model('Tag');
+        $this->wikiModel = $this->model('Wiki'); // Assurez-vous que 'Category' est correctement orthographié
 
     }
 
@@ -21,16 +23,21 @@ class Categories extends Controller
         $categories = $this->categoryModel->getCategories();
         $totalCategories = $this->categoryModel->getTotalCategories();
         $totalTags =  $this->tagModel->getTotalTags();
+        $totalWikis = $this->wikiModel->getTotalWikisCount();
+        
         $data = [
             'categories' => $categories,
             'totalCategories' => $totalCategories,
             'totalTags'=> $totalTags,
+            'totalWikis' => $totalWikis,
+
         ];
        
 
         // $this->view('category/index', $data);
         $this->view('dashboard/dashboard', $data);
     }
+
     public function index2()
     {
         $categories = $this->categoryModel->getCategories();
@@ -65,7 +72,7 @@ class Categories extends Controller
             if (empty($data['category_name_err'])) {
                 if ($this->categoryModel->addCategory($data)) {
                     flash('category_message', 'Category Added');
-                    redirect('categories');
+                    redirect('categories/index2');
                 } else {
                     die('Something went wrong');
                 }
@@ -112,7 +119,7 @@ class Categories extends Controller
             if (empty($data['category_name_err'])) {
                 if ($this->categoryModel->updateCategory($data)) {
                     flash('category_message', 'Category Updated');
-                    redirect('categories');
+                    redirect('categories/index2');
                 } else {
                     die('Something went wrong');
                 }

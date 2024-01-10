@@ -108,4 +108,28 @@ class Wiki
         $this->db->query('SELECT * FROM tags');
         return $this->db->resultSet();
     }
+
+
+
+    public function deleteWiki($id)
+    {
+        // First, delete the associated tags
+        $this->db->query('DELETE FROM wikitags WHERE wiki_id = :id');
+        $this->db->bind(':id', $id);
+        $this->db->execute();
+
+        // Then, delete the wiki
+        $this->db->query('DELETE FROM wikis WHERE wiki_id = :id');
+        $this->db->bind(':id', $id);
+
+        return $this->db->execute();
+    }
+
+
+
+    public function getTotalWikisCount()
+    {
+        $this->db->query('SELECT COUNT(*) AS total FROM wikis');
+        return $this->db->single()->total;
+    }
 }

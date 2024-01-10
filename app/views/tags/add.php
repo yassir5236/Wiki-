@@ -10,6 +10,13 @@
             <label for="tag_name" class="form-label">Tag Name: <sup></sup></label>
             <input type="text" name="tag_name" class="form-control <?php echo (!empty($data['title_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['tag_name']; ?>">
 
+            <?php  if (isset($data['title_err']) && !empty($data['title_err'])) : ?>
+                <?php echo '<script>
+            alert("' . $data['title_err'] . '");
+            </script>';
+            ?>
+             <?php endif; ?>
+
             <?php if (!empty($data['tag_name_err'])) : ?>
                 <div class="invalid-feedback"><?php echo $data['title_err']; ?></div>
             <?php endif; ?>
