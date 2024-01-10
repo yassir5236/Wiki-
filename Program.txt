@@ -1,10 +1,13 @@
 2 add wikis (adding tags en masse pour user )   // done 1/2 radia 
  1 modify tags (should be unique)                    //done 
-  -  5 archiver 
+  -  5 archiver                                      //  donne
      - 3 delete wikis                                //done
-        - filtrage des tags par categories 
+        
         - regix javascript 
         - regix php 
         - 4 affichage statistics wikis              //done
-        - 6 recherche wikis (tags-categories-wikis)
+        - 6 recherche wikis (tags-categories-wikis) 
         - trillage wikis  
+
+
+        - filtrage des tags par categories 

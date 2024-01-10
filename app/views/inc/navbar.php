@@ -57,7 +57,7 @@
       <a class="text-black text-4xl mr-16 font-bold" href="<?php echo URLROOT; ?>"><?php echo SITENAME; ?></a>
       <div class="flex-grow ml-4 w-3/5 p-2 bg-gray-400 rounded mr-8">
       <i class='fa-solid fa-magnifying-glass'></i>
-        <input type="text" placeholder="Search... " class = "bg-gray-400 text-black w-3/5 focus:border-none focus:outline-none placeholder-black">
+        <input type="text" id="searchInput" placeholder="Search... " class = "bg-gray-400 text-black w-3/5 focus:border-none focus:outline-none placeholder-black">
       </div>
       <button class="navbar-toggler hidden" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

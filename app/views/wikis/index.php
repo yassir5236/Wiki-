@@ -1,5 +1,11 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 
+
+<div id="searchResults"></div>
+
+
+
+
 <div class="mb-3">
     <a href="<?php echo URLROOT; ?>/wikis/add" class="btn btn-success"><i class="fa-solid fa-plus"></i> Add Wiki</a>
 </div>
@@ -76,6 +82,7 @@
                   <!-- Add delete button and form -->
                   
                     <a href="<?php echo URLROOT; ?>/wikis/edit/<?php echo $wiki->wiki_id; ?>" class="m-2 inline-block"><i class="fa-regular fa-pen-to-square"></i></a>
+                    <a href="<?php echo URLROOT; ?>/wikis/archive/<?php echo $wiki->wiki_id; ?>" class="m-2 inline-block"><i class="fa-regular fa-eye-slash"></i></a>
                     
                     <form class="d-inline" action="<?php echo URLROOT; ?>/wikis/delete/<?php echo $wiki->wiki_id; ?>" method="post" onsubmit="return confirm('Are you sure you want to delete this wiki?');">
                         <button type="submit" class="mt-2 text-red-600"><i class="fa-solid fa-trash"></i></button>

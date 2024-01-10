@@ -14,7 +14,7 @@ class Wiki
                          FROM wikis
                          LEFT JOIN categories ON wikis.category_id = categories.category_id
                          LEFT JOIN wikitags ON wikis.wiki_id = wikitags.wiki_id
-                         LEFT JOIN tags ON wikitags.tag_id = tags.tag_id
+                         LEFT JOIN tags ON wikitags.tag_id = tags.tag_id where archived=0
                          GROUP BY wikis.wiki_id");
         return $this->db->resultSet();
     }
@@ -132,4 +132,17 @@ class Wiki
         $this->db->query('SELECT COUNT(*) AS total FROM wikis');
         return $this->db->single()->total;
     }
+
+
+
+
+    public function archiveWiki($id)
+    {
+        $this->db->query('UPDATE wikis SET archived = 1 WHERE wiki_id = :id');
+        $this->db->bind(':id', $id);
+
+        return $this->db->execute();
+    }
+
+
 }

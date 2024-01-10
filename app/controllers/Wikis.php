@@ -72,7 +72,7 @@ class Wikis extends Controller
             if ($this->wikiModel->addWikiWithCategoryAndTags($data)) {
                 // Redirect or show success message
                 flash('wiki_message', 'Wiki Added');
-                redirect('wikis');
+                redirect('wikis/index2');
             } else {
                 die('Something went wrong');
             }
@@ -171,5 +171,17 @@ class Wikis extends Controller
 
         $this->view('dashboard/dashboard', $data);
 
+    }
+
+
+    public function archive($id)
+    {
+        if ($this->wikiModel->archiveWiki($id)) {
+            // Redirect or show success message
+            flash('wiki_message', 'Wiki Archived');
+            redirect('wikis/index2');
+        } else {
+            die('Something went wrong');
+        }
     }
 }
