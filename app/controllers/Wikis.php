@@ -268,6 +268,9 @@ class Wikis extends Controller
             // Return the results in JSON format
             header('Content-Type: application/json');
             echo json_encode($searchResults);
+
+            
+            
             exit;
         }
     }

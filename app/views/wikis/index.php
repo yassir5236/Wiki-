@@ -1,6 +1,6 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 
-
+<a href="<?php echo URLROOT; ?>/Wikis/search">search</a>
 <div id="searchResults"></div>
 
 
