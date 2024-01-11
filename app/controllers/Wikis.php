@@ -254,4 +254,22 @@ class Wikis extends Controller
             die('Something went wrong');
         }
     }
+
+
+    // In your Wikis controller
+    public function search()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+            $searchTerm = isset($_GET['search']) ? trim($_GET['search']) : '';
+
+            // Call a method in your model to perform the search
+            $searchResults = $this->wikiModel->searchWikis($searchTerm);
+
+            // Return the results in JSON format
+            header('Content-Type: application/json');
+            echo json_encode($searchResults);
+            exit;
+        }
+    }
+
 }

@@ -1,18 +1,18 @@
-2 add wikis (adding tags en masse pour user )   // done 1/2 radia 
- 1 modify tags (should be unique)                    //done 
-  -  5 archiver                                      //  donne
-     - 3 delete wikis                                //done
+2 add wikis (adding tags en masse pour user (update should modify ) )  
+ 1 modify tags (should be unique adding message )                 
+
+    
         
-        - regix javascript 
-        - regix php 
-        - 4 affichage statistics wikis              //done
-        - 6 recherche wikis (tags-categories-wikis) 
-        - trillage wikis  
+       
+        click tags and adding them in the input (add tags )
+       
+        - 1 recherche wikis (tags-categories-wikis) 
+        - 3 trillage wikis  
 
 
-        - filtrage des tags par categories 
+        - filtrage des tags par categories  
+        -1 session (affichage contenue pour chaque utilisateur (contenue side bar aussi)) avec choix de categories 
+        -2 visiteur doit register pour acceder au contenue 
 
-        -session (affichage contenue pour chaque utilisateur (contenue side bar aussi))
 
-
-        i have to change wikis display (index and edit , add)
+       

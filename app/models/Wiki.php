@@ -202,4 +202,23 @@ class Wiki
     }
 
 
+
+    // In your Wiki model
+    public function searchWikis($searchTerm)
+    {
+        $this->db->query("SELECT wikis.*, categories.category_name, GROUP_CONCAT(tags.tag_name) AS tags
+                        FROM wikis
+                        LEFT JOIN categories ON wikis.category_id = categories.category_id
+                        LEFT JOIN wikitags ON wikis.wiki_id = wikitags.wiki_id
+                        LEFT JOIN tags ON wikitags.tag_id = tags.tag_id
+                        WHERE (wikis.title LIKE :searchTerm OR wikis.content LIKE :searchTerm)
+                        AND archived = 0
+                        GROUP BY wikis.wiki_id");
+
+        $this->db->bind(':searchTerm', "%$searchTerm%");
+
+        return $this->db->resultSet();
+    }
+
+
 }
