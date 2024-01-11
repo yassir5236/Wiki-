@@ -69,11 +69,13 @@ class Tags extends Controller
     
             if (empty($data['tag_name'])) {
                 $data['title_err'] = 'Please enter a name';
+                redirect('tags/add');
+
             } else {
                 // Check if the tag already exists
                 if ($this->tagModel->tagExists($data['tag_name'])) {
                     $data['title_err'] = 'Tag already exists';
-                 
+                    redirect('tags/add');
 
                 }
             }

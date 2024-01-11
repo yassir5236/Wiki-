@@ -19,7 +19,7 @@
   </div>
 
   <!-- Sidebar -->
-  <aside class="hidden lg:block lg:w-1/4 lg:w-1/3 sm:w-full bg-gray-800 text-white p-4 lg:mr-4 mb-4">
+  <aside class="hidden  sticky mx-auto lg:block lg:sticky lg:w-full xl:w-1/2 lg:w-1/4 lg:w-1/3 sm:w-full bg-gray-800 text-white p-4 lg:mr-4 mb-4">
     <div class="mb-4">
       <h2 class="text-2xl lg:text-3xl font-semibold">Admin Dashboard</h2>
     </div>
@@ -70,10 +70,10 @@
   
 
 
-<div class="container mx-auto flex flex-col w-2/5 items-center  mt-8">
+<div class="container   mx-auto flex flex-col  items-center  mt-8">
     <?php foreach ($data['wikis'] as $wiki): ?>
         <!-- Wiki Card -->
-        <div class="max-s  bg-white rounded-md overflow-hidden shadow-md transition-transform transform hover:scale-105 mb-4">
+        <div class="w-1/2 w-full md:w-1/2 lg:w-1/3 xl:w-1/2 h-80   bg-white rounded-md overflow-hidden shadow-md transition-transform transform hover:scale-105 mb-4">
             <div class="text-wrap flex flex-col w-full">
 
                
@@ -90,15 +90,15 @@
 
 
                 </div>
-                <h2 class="text-wrap text-2xl font-bold mb-2  w-4/5 text-gray-800 mt-0 p-6"><?php echo $wiki->title; ?></h2>
+                <h2 class=" text-2xl font-bold mb-  w-4/5 text-gray-800 mt-0 px-4"><?php echo $wiki->title; ?></h2>
 
             </div>
-            <div class="p-6">
-                <p class="whitespace-normal w-full text-gray-600 mb-4 overflow-hidden" style="text-overflow: ellipsis; white-space: nowrap;"><?php echo $wiki->content; ?>.</p>
+            <div class="p-6 mt-12">
+                <p class="whitespace-normal w-full text-gray-600 mb-4  break-words overflow-hidden" style="text-overflow: ellipsis; white-space: nowrap;"><?php echo $wiki->content; ?>.</p>
                 <div class="flex items-center">
                     <?php if (property_exists($wiki, 'category_name')): ?>
-                        <span class="text-sm text-gray-500 mr-2">Category:</span>
-                        <p class="text-blue-500"><?php echo $wiki->category_name; ?></p>
+                        <span class="text-sm  mr-2">Category:</span>
+                        <p class="text-white  p-1 rounded rounded-2 bg-gray-500"><?php echo $wiki->category_name; ?></p>
                     <?php endif; ?>
                 </div>
 
@@ -106,10 +106,12 @@
                 <!-- Display Tags -->
                 <div class="mt-2 flex items-center">
                     <span class="text-sm text-gray-500 mr-2">Tags:</span>
-                    <?php if (property_exists($wiki, 'tags') && is_array($wiki->tags)): ?>
-                        <p class="text-blue-500 mr-2"><?php echo implode(', ', $wiki->tags); ?></p>
-                    <?php endif; ?>
-                    <p class="text-blue-500">Tag2</p>
+                   
+                        <p class="card-text text-white p-1 rounded rounded-2 bg-green-600">#<?php echo implode('/', (array)$wiki->tags); ?></p>
+                        
+                    
+                    <!-- <p class="text-blue-500">Tag2</p> -->
+                  
                 </div>
             </div>
         </div>

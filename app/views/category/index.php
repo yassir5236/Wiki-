@@ -21,7 +21,7 @@
   </div>
 
   <!-- Sidebar -->
-  <aside class="hidden lg:block lg:w-1/4 lg:w-1/3 sm:w-full bg-gray-800 text-white p-4 lg:mr-4 mb-4">
+  <aside class="hidden lg:block lg:w-full lg:w-1/4 lg:w-1/3 sm:w-full bg-gray-800 text-white p-4 lg:mr-4 mb-4">
     <div class="mb-4">
       <h2 class="text-2xl lg:text-3xl font-semibold">Admin Dashboard</h2>
     </div>
@@ -64,7 +64,7 @@
 
 <script>
   function toggleSidebar() {
-    const sidebar = document.querySelector('.lg\\:block'); // Use double backslash to escape the colon
+    const sidebar = document.querySelector('.md\\:block'); // Use double backslash to escape the colon
     const displayValue = window.getComputedStyle(sidebar).getPropertyValue('display');
     sidebar.style.display = displayValue === 'none' || displayValue === '' ? 'block' : 'none';
   }

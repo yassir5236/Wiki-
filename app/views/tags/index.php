@@ -38,7 +38,7 @@
   </div>
 
   <!-- Sidebar -->
-  <aside class="hidden lg:block lg:w-1/4 lg:w-1/3 sm:w-full bg-gray-800 text-white p-4 lg:mr-4 mb-4">
+  <aside class="hidden lg:block lg:w-full lg:w-1/4 lg:w-1/3 sm:w-full bg-gray-800 text-white p-4 lg:mr-4 mb-4">
     <div class="mb-4">
       <h2 class="text-2xl lg:text-3xl font-semibold">Admin Dashboard</h2>
     </div>

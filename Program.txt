@@ -11,3 +11,8 @@
 
 
         - filtrage des tags par categories 
+
+        -session (affichage contenue pour chaque utilisateur (contenue side bar aussi))
+
+
+        i have to change wikis display (index and edit , add)

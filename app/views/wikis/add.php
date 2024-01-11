@@ -1,4 +1,4 @@
-<?php require APPROOT . '/views/inc/header.php'; ?>
+ <?php require APPROOT . '/views/inc/header.php'; ?>
 
 <div class="flex items-center justify-center my-8">
     <h1 class="text-4xl font-extrabold text-green-600">Create a New Wiki</h1>
@@ -13,23 +13,76 @@
         <label for="content" class="block text-sm font-semibold text-gray-700 mb-2">Content</label>
         <textarea name="content" class="form-input w-full px-4 py-2 border rounded-md focus:outline-none focus:border-purple-500"></textarea>
     </div>
+  
+  
     <div class="mb-6">
-        <label for="category" class="block text-sm font-semibold text-gray-700 mb-2">Category</label>
-        <select name="category_id" class="form-select w-full px-4 py-2 border rounded-md focus:outline-none focus:border-purple-500">
+        <label for="category" class=" block text-sm font-semibold text-gray-700 mb-2 form-label">Category</label>
+        <select name="category_id" id="categoryId" class=" form-select w-full px-4 py-2 border rounded-md focus:outline-none focus:border-purple-500 form-select">
             <?php foreach ($data['categories'] as $category): ?>
                 <option value="<?php echo $category->category_id; ?>"><?php echo $category->category_name; ?></option>
             <?php endforeach; ?>
         </select>
     </div>
-    <div class="mb-6">
-        <label for="tags" class="block text-sm font-semibold text-gray-700 mb-2">Tags</label>
-        <select name="tags[]" class="form-select w-full px-4 py-2 border rounded-md focus:outline-none focus:border-purple-500" multiple>
-            <?php foreach ($data['tags'] as $tag): ?>
-                <option value="<?php echo $tag->tag_id; ?>"><?php echo $tag->tag_name; ?></option>
-            <?php endforeach; ?>
-        </select>
+    <div class="mb-3">
+        <label for="tags" class="form-label">Tags</label>
+        <input type="text" name="tags" class=" form-control">
+
+        <div id="tagsContainer" class=" "></div>
     </div>
-    <button type="submit" class="btn btn text-white bg-green-500 ">Add Wiki</button>
+    <div class="pt-1 mb-3 d-flex mt-2 justify-content-end">
+        <button class="btn  btn-md btn-block bg-green-500  text-white " type="submit" name="submit">Valider</button>
+    </div>
 </form>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var selectedTags = [];
+        var tagsContainer = document.getElementById("tagsContainer");
+        var categorySelect = document.getElementById("categoryId");
+
+        function updateTags() {
+            tagsContainer.innerHTML = "";
+
+            var categoryId = categorySelect.value;
+            var tags = <?php echo json_encode($data['categoryTags']); ?>[categoryId];
+
+            if (tags) {
+                tags.forEach(function (tag) {
+                    var tagButton = document.createElement("button");
+                    tagButton.textContent = tag.tag_name;
+                    tagButton.type = "button";
+                    tagButton.classList.add("bg-green-400", "m-2", "text-white", "text-sm", "font-medium", "me-2", "cursor-pointer", "px-3", "py-1", "rounded");
+                    tagButton.dataset.tagId = tag.tag_id;
+
+                    tagButton.addEventListener("click", function () {
+                        this.classList.toggle("bg-blue-500");
+                        var index = selectedTags.indexOf(tag.tag_id);
+                        if (index === -1) {
+                            selectedTags.push(tag.tag_id);
+                        } else {
+                            selectedTags.splice(index, 1);
+                        }
+                        selectedTagsInput.value = JSON.stringify(selectedTags);
+                    });
+
+                    tagsContainer.appendChild(tagButton);
+                });
+            }
+        }
+
+        updateTags();
+
+        categorySelect.addEventListener("change", function () {
+            selectedTags = [];
+            updateTags();
+        });
+    });
+
+    function ToDetailWiki(element) {
+        var wikiId = element.getAttribute('data-wiki-id');
+        var wikiUrl = "<?php echo URLROOT . '/WikiController/singleWiki/'; ?>" + wikiId;
+        window.location.href = wikiUrl;
+    }
+</script>
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>
