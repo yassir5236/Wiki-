@@ -17,21 +17,13 @@
       
   }
 
-    public function about(){
-      $data = [
-        'title' => 'About Us',
-        'description' => 'App to share posts with other users'
-      ];
 
-      $this->view('pages/about', $data);
-    }
 
     public function dashboard()
     {
         $this->view('dashboard/dashboard');
     }
 
-   
-
+  
 
   }

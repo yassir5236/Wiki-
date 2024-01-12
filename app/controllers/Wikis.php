@@ -9,9 +9,9 @@ class Wikis extends Controller
 
     public function __construct()
     {
-        if (!isLoggedIn()) {
-            redirect('users/login');
-        }
+        // if (!isLoggedIn()) {
+        //     redirect('users/login');
+        // }
 
         $this->wikiModel = $this->model('Wiki');
         $this->tagModel = $this->model('Tag');

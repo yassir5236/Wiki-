@@ -8,9 +8,9 @@ class Categories extends Controller
 
     public function __construct()
     {
-        if (!isLoggedIn()) {
-            redirect('users/login');
-        }
+        // if (!isLoggedIn()) {
+        //     redirect('users/login');
+        // }
 
         $this->categoryModel = $this->model('Category');
         $this->tagModel = $this->model('Tag');

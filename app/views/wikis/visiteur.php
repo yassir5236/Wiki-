@@ -18,7 +18,7 @@
 
 
             <li>
-                <a href="<?php echo URLROOT; ?>/Wikis/index2" class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700">
+                <a href="<?php echo URLROOT; ?>/Pages/index" class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700">
                     <span class="mr-2">📚</span>
                     Acceuil
                 </a>

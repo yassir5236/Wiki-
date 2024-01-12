@@ -1,6 +1,5 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
-
-<a href="<?= URLROOT ?>/Wikis/userWikis" class="flex items-center text-gray-500 hover:text-gray-700 transition duration-300">
+    <a href="<?php echo isset($_SESSION['user_id']) ? URLROOT . '/Wikis/userWikis' : URLROOT . '/Pages/index'; ?>" class="flex items-center text-gray-500 hover:text-gray-700 transition duration-300">
     <i class="fas fa-arrow-left mr-2"></i> Back
 </a>
 
@@ -21,7 +20,7 @@
 
     <div class="mb-6">
         Tags:
-        <?php foreach ($data['wiki']->tags as $tag): ?>
+        <?php foreach ($data['wiki']->tags as $tag) : ?>
             <span class="inline-block bg-blue-500 text-white rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">
                 <?= $tag ?>
             </span>
