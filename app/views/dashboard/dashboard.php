@@ -12,7 +12,7 @@
   </div>
 
   <!-- Sidebar -->
-  <aside class="hidden lg:block  lg:w-full lg:w-1/4 lg:w-1/3 sm:w-full bg-gray-800 text-white p-4 lg:mr-4 mb-4">
+  <aside class=" sticky hidden lg:block  lg:w-full lg:w-1/4 lg:w-1/3 sm:w-full bg-gray-800 text-white p-4 lg:mr-4 mb-4">
     <div class="mb-4">
       <h2 class="text-2xl lg:text-3xl font-semibold">Admin Dashboard</h2>
     </div>
@@ -33,7 +33,7 @@
           </a>
         </li>
         <li>
-          <a href="<?php echo URLROOT; ?>/Wikis/index2"
+          <a href="<?php echo URLROOT; ?>/wikis/adminWikis"
             class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700">
             <span class="mr-2">📚</span>
             Manage Wikis
@@ -45,6 +45,9 @@
             <span class="mr-2">📊</span>
             Dashboard Stats
           </a>
+        </li>
+        <li>
+          <a class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700" href="<?php echo URLROOT; ?>/users/logout"><span class="mr-2">📊</span>Logout</a>
         </li>
       </ul>
     </nav>

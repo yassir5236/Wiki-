@@ -38,6 +38,17 @@ class Wikis extends Controller
 
     }
 
+
+    public function adminWikis()
+    {
+        $wikis = $this->wikiModel->getWikis();
+        $data = [
+            'wikis' => $wikis,
+        ];
+        $this->view('wikis/admin', $data);
+    }
+
+
     public function index2(){
      
         $wikis = $this->wikiModel->getWikis();
@@ -51,40 +62,7 @@ class Wikis extends Controller
         
     }
 
-    // public function add()
-    // {
-    //     $categories = $this->wikiModel->getCategories();
-    //     $tags = $this->wikiModel->getTags();
-
-    //     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    //         // Sanitize and validate input
-    //         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-    //         $data = [
-    //             'title' => trim($_POST['title']),
-    //             'content' => trim($_POST['content']),
-    //             'category_id' => $_POST['category_id'],
-    //             'tags' => $_POST['tags'],
-    //             'categories' => $categories,
-    //             // 'tags' => $tags,
-    //         ];
-
-    //         // Call the model method to add the wiki with category and tags
-    //         if ($this->wikiModel->addWikiWithCategoryAndTags($data)) {
-    //             // Redirect or show success message
-    //             flash('wiki_message', 'Wiki Added');
-    //             redirect('wikis/index2');
-    //         } else {
-    //             die('Something went wrong');
-    //         }
-    //     } else {
-    //         // Display the form
-    //         $data = [
-    //             'categories' => $categories,
-    //             'tags' => $tags,
-    //         ];
-    //         $this->view('wikis/add', $data);
-    //     }
-    // }
+  
 
 
 
@@ -102,9 +80,12 @@ class Wikis extends Controller
             $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
 
             // Assurez-vous que $_POST['tags'] existe et est une chaîne avant d'utiliser explode
-            $tags = isset($_POST['tags']) ? (is_array($_POST['tags']) ? $_POST['tags'] : explode(',', $_POST['tags'])) : [];
+            // $tags = isset($_POST['tags']) ? (is_array($_POST['tags']) ? $_POST['tags'] : explode(',', $_POST['tags'])) : [];
 
+            $tags = isset($_POST['selectedTagsInput']) ? json_decode($_POST['selectedTagsInput'], true) : [];
 
+            // var_dump($tags);
+            // die();
             // Traiter les données du formulaire (ex: enregistrer dans la base de données)...
             $data = [
                 'title' => $title,
@@ -269,10 +250,34 @@ class Wikis extends Controller
             header('Content-Type: application/json');
             echo json_encode($searchResults);
 
-            
-            
             exit;
         }
+        
     }
+
+    public function userWikis()
+{
+
+    $userWikis = $this->wikiModel->getWikisByUserId($_SESSION['user_id']);
+    $data = [
+        'userWikis' => $userWikis,
+    ];
+    $this->view('wikis/userWikis', $data);
+}
+
+
+public function show($id) {
+    $wiki = $this->wikiModel->getWikiById($id);
+    if (!$wiki) {
+
+        redirect('pages/error');
+    }
+
+    $data = [
+        'wiki' => $wiki,
+
+    ];
+    $this->view('wikis/showWikis', $data);
+}
 
 }

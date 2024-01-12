@@ -59,7 +59,7 @@
           </a>
         </li>
         <li>
-          <a href="<?php echo URLROOT; ?>/Wikis/index2"
+          <a href="<?php echo URLROOT; ?>/wikis/adminWikis"
             class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700">
             <span class="mr-2">📚</span>
             Manage Wikis
@@ -71,6 +71,9 @@
             <span class="mr-2">📊</span>
             Dashboard Stats
           </a>
+        </li>
+        <li>
+          <a class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700" href="<?php echo URLROOT; ?>/users/logout"><span class="mr-2">📊</span>Logout</a>
         </li>
       </ul>
     </nav>
@@ -171,5 +174,8 @@
             .catch(error => console.error('Error:', error));
     }
 </script>
+
+
+
 
 <?php require APPROOT . '/views/inc/footer.php'; ?>

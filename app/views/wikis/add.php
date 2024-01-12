@@ -24,8 +24,8 @@
         </select>
     </div>
     <div class="mb-3">
-        <label for="tags" class="form-label">Tags</label>
-        <input type="text" name="tags" class=" form-control">
+        <label for="selectedTagsInput" class="form-label">Tags</label>
+        <input type="hidden" id="selectedTagsInput" name="selectedTagsInput" class=" form-control">
 
         <div id="tagsContainer" class=" "></div>
     </div>
@@ -55,6 +55,7 @@
                     tagButton.dataset.tagId = tag.tag_id;
 
                     tagButton.addEventListener("click", function () {
+
                         this.classList.toggle("bg-blue-500");
                         var index = selectedTags.indexOf(tag.tag_id);
                         if (index === -1) {
@@ -63,6 +64,7 @@
                             selectedTags.splice(index, 1);
                         }
                         selectedTagsInput.value = JSON.stringify(selectedTags);
+                        console.log(selectedTags);
                     });
 
                     tagsContainer.appendChild(tagButton);

@@ -170,12 +170,12 @@
       // var_dump($_SESSION['user_id']);
       // die();
       if($user->role =='admin'){
-      redirect('categories/index');
+      redirect('wikis');
       // redirect('Tags/index');
       // redirect("dashboard/dashboard");
       }elseif($user->role =='user') {
         // redirect('Tags/index');
-        $this->view('tags/index');
+        redirect('wikis/index2');
       }else{
         // redirect('Home');
       }

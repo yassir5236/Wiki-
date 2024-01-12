@@ -65,7 +65,8 @@
 <div id="searchResultsContainer">
 
 <div class="container   mx-auto flex flex-col  items-center  mt-8">
-    <?php foreach ($data['wikis'] as $wiki): ?>
+<?php foreach ($data['userWikis'] as $wiki): ?>
+    
         <!-- Wiki Card -->
         <div class="w-1/2 w-full md:w-1/2 lg:w-1/3 xl:w-1/2 h-80   bg-white rounded-md overflow-hidden shadow-md transition-transform transform hover:scale-105 mb-4">
             <div class="text-wrap flex flex-col w-full">
@@ -99,13 +100,14 @@
                 
                 <!-- Display Tags -->
                 <div class="mt-2 flex items-center">
+                <div class="px-6 pt-4 pb-2">
+                                    <a href="<?php echo URLROOT; ?>/wikis/show/<?php echo $wiki->wiki_id; ?>"
+                                        class="inline-block bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-700">
+                                        Read More
+                                    </a>
+                                </div>
                     <span class="text-sm text-gray-500 mr-2">Tags:</span>
-                   
                         <p class="card-text text-white p-1 rounded rounded-2 bg-green-600">#<?php echo implode('/', (array)$wiki->tags); ?></p>
-                        
-                    
-                    <!-- <p class="text-blue-500">Tag2</p> -->
-                  
                 </div>
             </div>
         </div>

@@ -31,4 +31,59 @@
       </form>
     </div>
   </div>
+
+ 
+
+
+
+  
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit', function(event) {
+      let valid = true;
+
+      // Name validation: only letters and spaces
+      const nameInput = form.querySelector('[name="name"]');
+      const nameRegex = /^[A-Za-z ]+$/;
+      if (!nameRegex.test(nameInput.value)) {
+        alert('Please enter a valid name (only letters and spaces allowed)');
+        valid = false;
+      }
+
+      // Email validation
+      const emailInput = form.querySelector('[name="email"]');
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(emailInput.value)) {
+        alert('Please enter a valid email address');
+        valid = false;
+      }
+
+      // Password validation: at least 8 characters
+      const passwordInput = form.querySelector('[name="password"]');
+      if (passwordInput.value.length < 8) {
+        alert('Password must be at least 8 characters long');
+        valid = false;
+      }
+
+      // Confirm Password validation: must match password
+      const confirmPasswordInput = form.querySelector('[name="confirm_password"]');
+      if (confirmPasswordInput.value !== passwordInput.value) {
+        alert('Passwords do not match');
+        valid = false;
+      }
+
+      // Prevent form submission if validation fails
+      if (!valid) {
+        event.preventDefault();
+      }
+    });
+  });
+</script>
+
+
+
+<!-- ... Your PHP and HTML code ... -->
+
 <?php require APPROOT . '/views/inc/footer.php'; ?>

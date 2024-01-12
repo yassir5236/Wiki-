@@ -42,7 +42,7 @@
           </a>
         </li>
         <li>
-          <a href="<?php echo URLROOT; ?>/Wikis/index2"
+          <a href="<?php echo URLROOT; ?>/wikis/adminWikis"
             class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700">
             <span class="mr-2">📚</span>
             Manage Wikis
@@ -54,6 +54,9 @@
             <span class="mr-2">📊</span>
             Dashboard Stats
           </a>
+        </li>
+        <li>
+          <a class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700" href="<?php echo URLROOT; ?>/users/logout"><span class="mr-2">📊</span>Logout</a>
         </li>
       </ul>
     </nav>
@@ -104,6 +107,78 @@
 </div>
 
 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('searchInput');
+    const searchResultsContainer = document.getElementById('searchResultsContainer');
+
+    searchInput.addEventListener('input', function () {
+        const searchTerm = searchInput.value.trim();
+
+        // Check if the search term is empty
+        if (searchTerm === '') {
+            // Clear the search results container
+            searchResultsContainer.innerHTML = '';
+            return;
+        }
+
+        // Perform AJAX request
+        const xhr = new XMLHttpRequest();
+
+        xhr.open('GET', `<?php echo URLROOT; ?>/Wikis/search?search=${searchTerm}`, true);
+
+        xhr.onload = function () {
+            if (xhr.status >= 200 && xhr.status < 400) {
+                // Success! Handle the response and update the content
+                const response = JSON.parse(xhr.responseText);
+                // Update the content based on the response
+                updateSearchResults(response);
+            } else {
+                // Error handling
+                console.error('Request failed');
+            }
+        };
+
+        xhr.onerror = function () {
+            // Network error
+            console.error('Network error');
+        };
+
+        xhr.send();
+    });
+
+    function updateSearchResults(results) {
+        // Clear previous results
+        searchResultsContainer.innerHTML = '';
+
+        if (results.length > 0) {
+            // Display the search results
+            results.forEach(result => {
+                const resultElement = document.createElement('div');
+                resultElement.classList.add('search-result');
+
+                // Display result data (customize based on your data structure)
+                resultElement.innerHTML = `
+                    <h2>${result.title}</h2>
+                    <p>${result.content}</p>
+                    <p>Category: ${result.category_name}</p>
+                    <p>Tags: ${result.tags || 'None'}</p>
+                    <!-- Add more data as needed -->
+
+                    <hr>
+                `;
+
+                searchResultsContainer.appendChild(resultElement);
+            });
+        } else {
+            // Display a message when no results are found
+            const noResultsMessage = document.createElement('p');
+            noResultsMessage.textContent = 'No results found.';
+            searchResultsContainer.appendChild(noResultsMessage);
+        }
+    }
+});
+</script>
 
 
 

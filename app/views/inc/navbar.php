@@ -59,22 +59,25 @@
       <i class='fa-solid fa-magnifying-glass'></i>
         <input type="text" id="searchInput" placeholder="Search... " class = "bg-gray-400 text-black w-3/5 focus:border-none focus:outline-none placeholder-black">
       </div>
-      <button class="navbar-toggler hidden" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler hidden" type="button" data-toggle="collapse"  aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="hidden-md flex items-center" id="navbarsExampleDefault">
+      <div class="hidden flex items-center" id="navbarsExampleDefault">
         <!-- <a class="text-black p-2" href="<?php echo URLROOT; ?>/categories/index">Home</a> -->
         <!-- <?php if(isset($_SESSION['user_id']) && isAdmin()): ?> -->
           <!-- <a class="text-black border-2 rounded-lg mr-2 p-2 border-slate-400 " href="<?php echo URLROOT; ?>/Pages/dashboard">Dashboard</a> -->
         <!-- <?php endif; ?> -->
         <div class="ml-auto">
           <?php if(isset($_SESSION['user_id'])) : ?>
-            <a class="text-black p-2 text-black border-2 rounded-lg text-white bg-black  border-slate-400 px-4" href="<?php echo URLROOT; ?>/users/logout">Logout</a>
+           <a class="text-black p-2 text-black border-2 rounded-lg text-white bg-black sm:hidden xs:hidden border-slate-400 px-4" href="<?php echo URLROOT; ?>/users/logout">Logout</a>
+
           <?php else : ?>
-            <a class="text-black custom-login-button font-bold p-2 text-black border-2 rounded-lg border-slate-400 p-4" href="<?php echo URLROOT; ?>/users/login">Login</a>
+            <div class="flex ">
+            <a class="text-black custom-login-button font-bold m-2 p-2 px-4 text-black border-2 rounded-lg border-slate-400 p-2" href="<?php echo URLROOT; ?>/users/login">Login</a>
             <!-- <a class="text-black custom-login-button font-bold p-2 text-black border-2 rounded-lg border-slate-400 p-4" href="<?php echo URLROOT; ?>/users/login">Login</a> -->
-            <a class="text-black border-2 rounded-lg border-slate-400 p-4" href="<?php echo URLROOT; ?>/users/register">Register</a>
+            <a class="text-black border-2 rounded-lg  m-2 px-4 border-slate-400 p-2" href="<?php echo URLROOT; ?>/users/register">Register</a>
           <?php endif; ?>
+            </div>
         </div>
       </div>
     </div>

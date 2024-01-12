@@ -21,8 +21,13 @@
 
       $this->view('pages/about', $data);
     }
+
     public function dashboard()
     {
         $this->view('dashboard/dashboard');
     }
+
+   
+
+
   }

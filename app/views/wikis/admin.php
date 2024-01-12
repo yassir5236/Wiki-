@@ -21,24 +21,36 @@
   <!-- Sidebar -->
   <aside class="  hidden  sticky mx-auto lg:block  lg:w-full xl:w-1/2 lg:w-1/4 lg:w-1/3 sm:w-full bg-gray-800 text-white p-4 lg:mr-4 mb-4">
     <div class="mb-4">
-      <h2 class="text-2xl lg:text-3xl font-semibold">Welcome Back !</h2>
+      <h2 class="text-2xl lg:text-3xl font-semibold">Admin Dashboard</h2>
     </div>
     <nav>
       <ul class="space-y-2">
-       
-       
         <li>
-          <a href="<?php echo URLROOT; ?>/Wikis/index2"
+          <a href="<?php echo URLROOT; ?>/categories/index2"
+            class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700">
+            <span class="mr-2">📁</span>
+            Manage Categories
+          </a>
+        </li>
+        <li>
+          <a href="<?php echo URLROOT; ?>/tags/index2"
+            class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700">
+            <span class="mr-2">🏷️</span>
+            Manage Tags
+          </a>
+        </li>
+        <li>
+          <a href="<?php echo URLROOT; ?>/wikis/adminWikis"
             class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700">
             <span class="mr-2">📚</span>
             Manage Wikis
           </a>
         </li>
         <li>
-          <a href="<?php echo URLROOT; ?>/Wikis/userWikis"
+          <a href="dashboard.php"
             class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700">
             <span class="mr-2">📊</span>
-            Mes wikis
+            Dashboard Stats
           </a>
         </li>
         <li>
@@ -74,12 +86,12 @@
                 <div class="flex justify-end inline p-2">
 
                   <!-- Add delete button and form -->
-                  <?php if ($wiki->author_id == $_SESSION['user_id']): ?>
-                    <a href="<?php echo URLROOT; ?>/wikis/edit/<?php echo $wiki->wiki_id; ?>" class="m-2 inline-block"><i class="fa-regular fa-pen-to-square"></i></a>
-                    <form class="d-inline" action="<?php echo URLROOT; ?>/wikis/delete/<?php echo $wiki->wiki_id; ?>" method="post" onsubmit="return confirm('Are you sure you want to delete this wiki?');">
-                        <button type="submit" class="mt-2 text-red-600"><i class="fa-solid fa-trash"></i></button>
-                    </form>
-                    <?php endif?>
+                  
+                    
+                    <a href="<?php echo URLROOT; ?>/wikis/archive/<?php echo $wiki->wiki_id; ?>" class="m-2 inline-block"><i class="fa-regular fa-eye-slash"></i></a>
+                    
+                  
+                  
 
 
                 </div>
