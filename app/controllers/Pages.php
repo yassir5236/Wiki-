@@ -5,13 +5,17 @@
     }
     
     public function index(){
+      $wikiModel = $this->model('Wiki');
+
+      $wikis = $wikiModel->getWikis();
       $data = [
-        'title' => 'SharePosts',
-        'description' => 'Simple social network built on the TraversyMVC PHP framework'
+          'wikis' => $wikis,
       ];
      
-      $this->view('pages/index', $data);
-    }
+
+      $this->view('wikis/visiteur', $data);
+      
+  }
 
     public function about(){
       $data = [

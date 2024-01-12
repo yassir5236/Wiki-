@@ -53,6 +53,23 @@ class Categories extends Controller
     }
 
 
+    public function index3()
+    {
+        $categories = $this->categoryModel->getCategories();
+       
+        $data = [
+            'categories' => $categories,
+            
+        ];
+       
+
+         $this->view('category/showCategories', $data);
+        
+    }
+
+
+
+
 
 
     public function add()

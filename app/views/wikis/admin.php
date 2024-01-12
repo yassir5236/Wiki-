@@ -189,12 +189,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
                                     <!-- Add delete button and form -->
 
-                                    <a href="<?php echo URLROOT; ?>/wikis/edit/<?php echo $wiki->wiki_id; ?>" class="m-2 inline-block"><i class="fa-regular fa-pen-to-square"></i></a>
                                     <a href="<?php echo URLROOT; ?>/wikis/archive/<?php echo $wiki->wiki_id; ?>" class="m-2 inline-block"><i class="fa-regular fa-eye-slash"></i></a>
                                     
-                                    <form class="d-inline" action="<?php echo URLROOT; ?>/wikis/delete/<?php echo $wiki->wiki_id; ?>" method="post" onsubmit="return confirm('Are you sure you want to delete this wiki?');">
-                                        <button type="submit" class="mt-2 text-red-600"><i class="fa-solid fa-trash"></i></button>
-                                    </form>
+                                  
                              </div>
 
                                  <h2 class=" text-2xl font-bold mb-  w-4/5 text-gray-800 mt-0 px-4">${result.title}</h2>

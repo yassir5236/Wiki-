@@ -123,15 +123,18 @@ class Wiki
 
     public function getWikiById($id)
     {
-        $this->db->query("SELECT wikis.*, categories.category_name, GROUP_CONCAT(tags.tag_id) AS tag_ids
-                     FROM wikis
-                     LEFT JOIN categories ON wikis.category_id = categories.category_id
-                    
-                     LEFT JOIN tags ON wikis.category_id = tags.category_id
-                     WHERE wikis.wiki_id = :id
-                     GROUP BY wikis.wiki_id");
+        $this->db->query('SELECT Wikis.*, Users.username as author_name, Categories.category_name, GROUP_CONCAT(Tags.tag_name) AS tag_ids
+        FROM Wikis
+        JOIN Users ON Wikis.author_id = Users.user_id
+        JOIN Categories ON Wikis.category_id = Categories.category_id
+        LEFT JOIN WikiTags ON Wikis.wiki_id = WikiTags.wiki_id
+        LEFT JOIN Tags ON WikiTags.tag_id = Tags.tag_id
+        WHERE Wikis.wiki_id = :wiki_id
+        GROUP BY Wikis.wiki_id
+        ORDER BY Wikis.updated_at DESC;');
+    
+    $this->db->bind(':wiki_id', $id);
 
-        $this->db->bind(':id', $id);
         $row = $this->db->single();
 
     
@@ -242,6 +245,8 @@ $this->db->bind(':user_id', $userId);
 
     return $this->db->resultSet();
 }
+
+
     
 
 

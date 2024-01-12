@@ -57,7 +57,6 @@ class Wikis extends Controller
         ];
        
 
-        // $this->view('category/index', $data);
         $this->view('wikis/index', $data);
         
     }

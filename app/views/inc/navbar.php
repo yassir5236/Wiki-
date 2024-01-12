@@ -54,7 +54,7 @@
   <!-- Navbar code -->
   <nav class="bg-gray-300 p-4 custom-navbar">
     <div class="container mx-auto flex justify-between items-center text-black">
-      <a class="text-black text-4xl mr-16 font-bold" href="<?php echo URLROOT; ?>"><?php echo SITENAME; ?></a>
+      <a class="text-black text-4xl mr-16 font-bold" href="#"><?php echo SITENAME; ?></a>
       <div class="flex-grow ml-4 w-3/5 p-2 bg-gray-400 rounded mr-8">
       <i class='fa-solid fa-magnifying-glass'></i>
         <input type="text" id="searchInput" placeholder="Search... " class = "bg-gray-400 text-black w-3/5 focus:border-none focus:outline-none placeholder-black">
