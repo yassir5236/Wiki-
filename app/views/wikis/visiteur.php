@@ -153,16 +153,16 @@
                     // Display result data (customize based on your data structure)
                     resultElement.innerHTML = `
                 <div class="container   mx-auto flex flex-col  items-center  mt-8">
-                    <div class="w-1/2 w-full md:w-1/2 lg:w-1/3 xl:w-1/2 h-80   bg-white rounded-md overflow-hidden shadow-md transition-transform transform hover:scale-105 mb-4">
+                    <div class="w-1/2 w-full md:w-1/2 lg:w-1/3 xl:w-1/2 h-80   bg-white rounded-md overflow-hidden shadow-md transition-transform transform hover:scale-105 mb-0">
                         <div class="text-wrap flex flex-col w-full">
                         
 
 
 
-                        <h2 class=" text-2xl font-bold mb-  w-4/5 text-gray-800 mt-0 px-4">${result.title}</h2>
+                        <h2 class=" text-2xl font-bold mb-8  w-4/5 text-gray-800 mt-0 px-4">${result.title}</h2>
 
                                 
-                        <div class="p-6 mt-12">
+                        <div class="p-6 mt-2 ">
                         <p class="whitespace-normal w-full text-gray-600 mb-4  break-words overflow-hidden" style="text-overflow: ellipsis; white-space: nowrap;">${result.content}</p>
                                  <div class="flex items-center">
                                     <span class="text-sm  mr-2">Category:</span>
