@@ -111,7 +111,7 @@ class Tags extends Controller
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($this->tagModel->deleteTag($id)) {
                 flash('tag_message', 'Tag Deleted');
-                redirect('tags');
+                redirect('tags/index2');
             } else {
                 die('Something went wrong');
             }

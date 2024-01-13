@@ -183,11 +183,8 @@
                     // Display result data (customize based on your data structure)
                     resultElement.innerHTML = `
                 <div class="container   mx-auto flex flex-col  items-center  mt-8">
-                    <div class="w-1/2 w-full md:w-1/2 lg:w-1/3 xl:w-1/2 h-80   bg-white rounded-md overflow-hidden shadow-md transition-transform transform hover:scale-105 mb-4">
-                        <div class="text-wrap flex flex-col w-full">
-                        
-
-                             ${result.author_id === sessionUserId ? `
+                    <div class="w-1/2 w-full md:w-1/2 lg:w-1/3 xl:w-1/2 h-80   bg-white rounded-md overflow-hidden shadow-md transition-transform transform hover:scale-105 mb-0">
+                    ${result.author_id === sessionUserId ? `
                             <div class="flex justify-end inline p-2">
                                 <!-- Add delete button and form -->
                                 <a href="${URLROOT}/wikis/edit/${result.wiki_id}" class="m-2 inline-block"><i class="fa-regular fa-pen-to-square"></i></a>
@@ -196,12 +193,16 @@
                                 </form>
                             </div>
                         ` : ''}
+                        <div class="text-wrap flex flex-col w-full mt-2">
+                        
+
+                           
 
 
                         <h2 class=" text-2xl font-bold mb-  w-4/5 text-gray-800 mt-0 px-4">${result.title}</h2>
 
                                 
-                        <div class="p-6 mt-12">
+                        <div class="px-4 mt-4">
                         <p class="whitespace-normal w-full text-gray-600 mb-4  break-words overflow-hidden" style="text-overflow: ellipsis; white-space: nowrap;">${result.content}</p>
                                  <div class="flex items-center">
                                     <span class="text-sm  mr-2">Category:</span>
@@ -210,9 +211,14 @@
                             
                        
 
-                            <div class="mt-2 flex items-center">
+                                <div  class="mt-2 flex flex-between w-full items-center">
                             <span class="text-sm text-gray-500 mr-2">Tags:</span>
-                                <p class="card-text text-white p-1 rounded rounded-2 bg-green-600">Tags: ${result.tags || 'None'}</p>
+                                <p class="card-text text-white px-1 rounded rounded-2 bg-green-600">Tags: ${result.tags || 'None'}</p>
+                            </div>
+                            <div class="px-2 w-full  flex justify-end">
+                            <a href="<?php echo URLROOT; ?>/wikis/show/<?php echo $wiki->wiki_id; ?>" class="  text-black p-2  border-2 border-green-400 rounded-full hover:bg-green-400 hover:text-white">
+                                Read More
+                            </a>
                             </div>
                             
                         </div>

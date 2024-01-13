@@ -40,7 +40,7 @@
           </a>
         </li>
         <li>
-          <a href="dashboard.php"
+          <a href="#"
             class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700">
             <span class="mr-2">📊</span>
             Dashboard Stats
