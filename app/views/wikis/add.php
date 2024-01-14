@@ -7,11 +7,11 @@
 <form action="<?php echo URLROOT; ?>/wikis/add" method="post" class="max-w-md mx-auto mb-10 bg-gray-100 p-8 rounded-lg shadow-md">
     <div class="mb-6">
         <label for="title" class="block text-sm font-semibold text-gray-700 mb-2">Title</label>
-        <input type="text" name="title" class="form-input w-full px-4 py-2 border rounded-md focus:outline-none focus:border-purple-500">
+        <input type="text" name="title" class="form-input w-full px-4 py-2 border rounded-md focus:outline-none focus:border-purple-500" required>
     </div>
     <div class="mb-6">
         <label for="content" class="block text-sm font-semibold text-gray-700 mb-2">Content</label>
-        <textarea name="content" class="form-input w-full px-4 py-2 border rounded-md focus:outline-none focus:border-purple-500"></textarea>
+        <textarea name="content" class="form-input w-full px-4 py-2 border rounded-md focus:outline-none focus:border-purple-500" required></textarea>
     </div>
   
   

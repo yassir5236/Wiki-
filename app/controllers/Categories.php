@@ -162,4 +162,6 @@ class Categories extends Controller
             $this->view('category/edit', $data);
         }
     }
+
+    
 }

@@ -92,7 +92,7 @@
                             <input type="hidden" name="id" value="<?= $category->category_id; ?>">
                             <label for="category_name" class="text-gray-600">Edit Category:</label>
                             <div class="flex items-center">
-                                <input type="text" id="category_name" name="category_name" class="form-input border rounded-md px-2 py-1" value="<?= $category->category_name; ?>">
+                                <input type="text" id="category_name" name="category_name" class="form-input border rounded-md px-2 py-1" value="<?= $category->category_name; ?>" required>
                                 <input type="submit" value="Save" class="btn btn-success ml-2 py-1 px-3">
                             </div>
                         </div>

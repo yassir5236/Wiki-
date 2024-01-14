@@ -8,7 +8,7 @@
     <form action="<?php echo URLROOT; ?>/Categories/add" method="post">
         <div class="mb-4">
             <label for="tag_name" class="block text-gray-700 text-sm font-bold mb-2">Category Name: <sup>*</sup></label>
-            <input type="text" name="category_name" class="w-full p-2 border rounded <?php echo (!empty($data['title_err'])) ? 'border-red-500' : 'border-gray-300'; ?>" value="<?php echo $data['category_name']; ?>">
+            <input type="text" name="category_name" class="w-full p-2 border rounded <?php echo (!empty($data['title_err'])) ? 'border-red-500' : 'border-gray-300'; ?>" value="<?php echo $data['category_name']; ?>" required>
         
        
             <?php if (!empty($data['category_name_err'])) : ?>

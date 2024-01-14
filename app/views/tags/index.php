@@ -104,7 +104,7 @@
                     <form class="inline" action="<?= URLROOT ?>/tags/edit/<?= $tag->tagId; ?>" method="post">
                         <label for="tag_name" class="text-gray-600">Edit Tag:</label>
                         <div class="flex items-center">
-                            <input type="text" name="tag_name" class="form-input border rounded-md px-2 py-1" value="<?= $tag->tagName; ?>">
+                            <input type="text" name="tag_name" class="form-input border rounded-md px-2 py-1" value="<?= $tag->tagName; ?>" required>
                             <input type="submit" value="Save" class="btn btn-success ml-2 py-1 px-3">
                         </div>
                     </form>

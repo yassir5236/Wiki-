@@ -164,7 +164,7 @@ class Wikis extends Controller
                 'category_id' => $_POST['category_id'],
                 'tags' => $_POST['tags'],
                 'categories' => $categories,
-                // 'tags' => $tags,
+                
             ];
 
            
