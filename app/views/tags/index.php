@@ -14,15 +14,7 @@
 </div>
 
 
-<div class="mb-8">
-    <label for="categoryFilter" class="block text-sm font-medium text-gray-600 mb-2">Filter by Category:</label>
-    <select id="categoryFilter" class="form-select">
-        <option value="">All Categories</option>
-        <?php foreach ($data['categories'] as $category): ?>
-            <option value="<?= $category->category_id; ?>"><?= $category->category_name; ?></option>
-        <?php endforeach; ?>
-    </select>
-</div>
+
 <!-- <div class="flex justify-between"> -->
 
 
@@ -73,7 +65,7 @@
           </a>
         </li>
         <li>
-          <a class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700" href="<?php echo URLROOT; ?>/users/logout"><span class="mr-2">📊</span>Logout</a>
+          <a class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700" href="<?php echo URLROOT; ?>/users/logout"><span class="mr-2">🔒</span>Logout</a>
         </li>
       </ul>
     </nav>
@@ -125,55 +117,6 @@
 
 
 
-<script>
-    document.getElementById('categoryFilter').addEventListener('change', function () {
-        filterTagsByCategory(this.value);
-    });
-
-    function filterTagsByCategory(categoryId) {
-        fetch('<?php echo URLROOT; ?>/tags/filterByCategory', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: 'category_id=' + categoryId
-        })
-            .then(response => response.json())
-            .then(data => {
-                // Mettez à jour la liste des tags
-                const tagContainer = document.getElementById('tagContainer');
-                tagContainer.innerHTML = ''; // Effacez le contenu existant
-
-                if (data.tags.length > 0) {
-                    data.tags.forEach(tag => {
-                        const tagElement = document.createElement('div');
-                        tagElement.className = 'card card-body mb-3';
-                        tagElement.innerHTML = `
-                            <h4 class="card-title">${tag.tagName}</h4>
-                            <p>Category: ${tag.categoryName}</p>
-                            <div class="mt-3">
-                                <!-- Formulaires d'édition et de suppression -->
-                                <form class="d-inline" action="<?php echo URLROOT; ?>/tags/edit/${tag.tagId}" method="post">
-                                    <div class="form-group">
-                                        <label for="tag_name">Modifier Tag:</label>
-                                        <input type="text" name="tag_name" class="form-control" value="${tag.tagName}">
-                                    </div>
-                                    <input type="submit" value="Enregistrer" class="btn btn-success">
-                                </form>
-                                <form class="d-inline" action="<?php echo URLROOT; ?>/tags/delete/${tag.tagId}" method="post">
-                                    <input type="submit" value="Supprimer" class="btn btn-danger">
-                                </form>
-                            </div>
-                        `;
-                        tagContainer.appendChild(tagElement);
-                    });
-                } else {
-                    tagContainer.innerHTML = '<p>Aucun tag trouvé pour cette catégorie.</p>';
-                }
-            })
-            .catch(error => console.error('Error:', error));
-    }
-</script>
 
 
 

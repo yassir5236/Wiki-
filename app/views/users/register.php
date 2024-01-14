@@ -38,49 +38,45 @@
 
   
   <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const form = document.querySelector('form');
-
-    form.addEventListener('submit', function(event) {
-      let valid = true;
-
-      // Name validation: only letters and spaces
-      const nameInput = form.querySelector('[name="name"]');
-      const nameRegex = /^[A-Za-z ]+$/;
-      if (!nameRegex.test(nameInput.value)) {
-        alert('Please enter a valid name (only letters and spaces allowed)');
-        valid = false;
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelector('form').addEventListener('submit', function (e) {
+      // Validation du nom
+      let nameInput = document.querySelector('[name="name"]');
+      let nameRegex = /^[a-zA-Z\s]+$/;
+      if (!nameInput.value.trim() || !nameRegex.test(nameInput.value.trim())) {
+        alert('Veuillez entrer un nom valide (lettres seulement)');
+        e.preventDefault();
+        return;
       }
 
-      // Email validation
-      const emailInput = form.querySelector('[name="email"]');
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(emailInput.value)) {
-        alert('Please enter a valid email address');
-        valid = false;
+      // Validation de l'email
+      let emailInput = document.querySelector('[name="email"]');
+      let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailInput.value.trim() || !emailRegex.test(emailInput.value.trim())) {
+        alert('Veuillez entrer une adresse e-mail valide');
+        e.preventDefault();
+        return;
       }
 
-      // Password validation: at least 8 characters
-      const passwordInput = form.querySelector('[name="password"]');
-      if (passwordInput.value.length < 8) {
-        alert('Password must be at least 8 characters long');
-        valid = false;
+      // Validation du mot de passe
+      let passwordInput = document.querySelector('[name="password"]');
+      if (!passwordInput.value.trim()) {
+        alert('Veuillez entrer votre mot de passe');
+        e.preventDefault();
+        return;
       }
 
-      // Confirm Password validation: must match password
-      const confirmPasswordInput = form.querySelector('[name="confirm_password"]');
-      if (confirmPasswordInput.value !== passwordInput.value) {
-        alert('Passwords do not match');
-        valid = false;
-      }
-
-      // Prevent form submission if validation fails
-      if (!valid) {
-        event.preventDefault();
+      // Validation de la confirmation du mot de passe
+      let confirmPasswordInput = document.querySelector('[name="confirm_password"]');
+      if (confirmPasswordInput.value.trim() !== passwordInput.value.trim()) {
+        alert('Les mots de passe ne correspondent pas');
+        e.preventDefault();
+        return;
       }
     });
   });
 </script>
+
 
 
 

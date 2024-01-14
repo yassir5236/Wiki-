@@ -47,7 +47,7 @@
           </a>
         </li>
         <li>
-          <a class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700" href="<?php echo URLROOT; ?>/users/logout"><span class="mr-2">📊</span>Logout</a>
+          <a class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700" href="<?php echo URLROOT; ?>/users/logout"><span class="mr-2">🔒</span>Logout</a>
         </li>
       </ul>
     </nav>
@@ -115,34 +115,7 @@
 
             </div>
 
-            <!-- Charts and Graphs Section -->
-            <div class="mt-8">
-                <!-- Entity Distribution Chart -->
-                <div class="bg-white p-8 rounded-md shadow-md">
-                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Entity Distribution</h3>
-                    <!-- Include your chart or graph library here -->
-                    <div class="w-full h-48 bg-gray-200"></div>
-                </div>
-            </div>
-
-            <!-- Recent Activities Section -->
-            <div class="mt-8">
-                <h3 class="text-2xl font-semibold mb-4 text-gray-800">Recent Activities</h3>
-                <!-- Include a more interactive list or timeline of recent activities here -->
-                <div class="bg-white p-6 rounded-md shadow-md">
-                    <ul class="space-y-4">
-                        <li>
-                            <p class="text-gray-600">User John Doe created a new wiki.</p>
-                            <span class="text-xs text-gray-400">2 hours ago</span>
-                        </li>
-                        <li>
-                            <p class="text-gray-600">Category 'Technology' reached 100 articles.</p>
-                            <span class="text-xs text-gray-400">1 day ago</span>
-                        </li>
-                        <!-- Add more list items as needed -->
-                    </ul>
-                </div>
-            </div>
+       
     
 
   </section>

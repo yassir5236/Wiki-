@@ -229,7 +229,7 @@ class Wikis extends Controller
         if ($this->wikiModel->archiveWiki($id)) {
             // Redirect or show success message
             flash('wiki_message', 'Wiki Archived');
-            redirect('wikis/index2');
+            redirect('wikis/adminWikis');
         } else {
             die('Something went wrong');
         }

@@ -24,4 +24,31 @@
       </form>
     </div>
   </div>
+
+
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelector('form').addEventListener('submit', function (e) {
+      // Validation de l'email
+      let emailInput = document.querySelector('[name="email"]');
+      let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailInput.value.trim() || !emailRegex.test(emailInput.value.trim())) {
+        alert('Veuillez entrer une adresse e-mail valide');
+        e.preventDefault();
+        return;
+      }
+
+      // Validation du mot de passe
+      let passwordInput = document.querySelector('[name="password"]');
+      if (!passwordInput.value.trim()) {
+        alert('Veuillez entrer votre mot de passe');
+        e.preventDefault();
+        return;
+      }
+    });
+  });
+</script>
+
+
 <?php require APPROOT . '/views/inc/footer.php'; ?>

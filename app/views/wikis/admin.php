@@ -1,66 +1,56 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 
-
-
-
-
-
-
 <div class="mb-3">
-    <a href="<?php echo URLROOT; ?>/wikis/add" class="btn btn-success"><i class="fa-solid fa-plus"></i> Add Wiki</a>
+  <a href="<?php echo URLROOT; ?>/wikis/add" class="btn btn-success"><i class="fa-solid fa-plus"></i> Add Wiki</a>
 </div>
 
 <!-- Sidebar Section -->
- <!-- Sidebar Toggle Button -->
- <div class="fixed top-8 right-8 cursor-pointer block lg:hidden" onclick="toggleSidebar()">
-    <span class="block w-6 h-1 bg-black my-1"></span>
-    <span class="block w-6 h-1 bg-black my-1"></span>
-    <span class="block w-6 h-1 bg-black my-1"></span>
+<!-- Sidebar Toggle Button -->
+<div class="fixed top-8 right-8 cursor-pointer block lg:hidden" onclick="toggleSidebar()">
+  <span class="block w-6 h-1 bg-black my-1"></span>
+  <span class="block w-6 h-1 bg-black my-1"></span>
+  <span class="block w-6 h-1 bg-black my-1"></span>
+</div>
+
+<!-- Sidebar -->
+<aside class="  hidden  sticky mx-auto lg:block  lg:w-full xl:w-1/2 lg:w-1/4 lg:w-1/3 sm:w-full bg-gray-800 text-white p-4 lg:mr-4 mb-4">
+  <div class="mb-4">
+    <h2 class="text-2xl lg:text-3xl font-semibold">Admin Dashboard</h2>
   </div>
+  <nav>
+    <ul class="space-y-2">
+      <li>
+        <a href="<?php echo URLROOT; ?>/categories/index2" class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700">
+          <span class="mr-2">📁</span>
+          Manage Categories
+        </a>
+      </li>
+      <li>
+        <a href="<?php echo URLROOT; ?>/tags/index2" class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700">
+          <span class="mr-2">🏷️</span>
+          Manage Tags
+        </a>
+      </li>
+      <li>
+        <a href="<?php echo URLROOT; ?>/wikis/adminWikis" class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700">
+          <span class="mr-2">📚</span>
+          Manage Wikis
+        </a>
+      </li>
+      <li>
+        <a href="dashboard.php" class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700">
+          <span class="mr-2">📊</span>
+          Dashboard Stats
+        </a>
+      </li>
+      <li>
+        <a class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700" href="<?php echo URLROOT; ?>/users/logout"><span class="mr-2">🔒</span>Logout</a>
+      </li>
+    </ul>
+  </nav>
+</aside>
 
-  <!-- Sidebar -->
-  <aside class="  hidden  sticky mx-auto lg:block  lg:w-full xl:w-1/2 lg:w-1/4 lg:w-1/3 sm:w-full bg-gray-800 text-white p-4 lg:mr-4 mb-4">
-    <div class="mb-4">
-      <h2 class="text-2xl lg:text-3xl font-semibold">Admin Dashboard</h2>
-    </div>
-    <nav>
-      <ul class="space-y-2">
-        <li>
-          <a href="<?php echo URLROOT; ?>/categories/index2"
-            class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700">
-            <span class="mr-2">📁</span>
-            Manage Categories
-          </a>
-        </li>
-        <li>
-          <a href="<?php echo URLROOT; ?>/tags/index2"
-            class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700">
-            <span class="mr-2">🏷️</span>
-            Manage Tags
-          </a>
-        </li>
-        <li>
-          <a href="<?php echo URLROOT; ?>/wikis/adminWikis"
-            class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700">
-            <span class="mr-2">📚</span>
-            Manage Wikis
-          </a>
-        </li>
-        <li>
-          <a href="dashboard.php"
-            class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700">
-            <span class="mr-2">📊</span>
-            Dashboard Stats
-          </a>
-        </li>
-        <li>
-          <a class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700" href="<?php echo URLROOT; ?>/users/logout"><span class="mr-2">📊</span>Logout</a>
-        </li>
-      </ul>
-    </nav>
-  </aside>
-
-  <!-- Your main content goes here -->
+<!-- Your main content goes here -->
 <!-- Your main content goes here -->
 
 <script>
@@ -70,117 +60,121 @@
     sidebar.style.display = displayValue === 'none' || displayValue === '' ? 'block' : 'none';
   }
 </script>
-  
+
 <div id="searchResults"></div>
 
 
 <div id="searchResultsContainer">
 
-<div class="container   mx-auto flex flex-col  items-center  mt-8">
-    <?php foreach ($data['wikis'] as $wiki): ?>
-        <!-- Wiki Card -->
-        <div class="w-1/2 w-full md:w-1/2 lg:w-1/3 xl:w-1/2 h-80   bg-white rounded-md overflow-hidden shadow-md transition-transform transform hover:scale-105 mb-4">
-            <div class="text-wrap flex flex-col w-full">
-
-               
-                <div class="flex justify-end inline p-2">
-
-                  <!-- Add delete button and form -->
-                  
-                    
-                    <a href="<?php echo URLROOT; ?>/wikis/archive/<?php echo $wiki->wiki_id; ?>" class="m-2 inline-block"><i class="fa-regular fa-eye-slash"></i></a>
-                    
-                  
-                  
+  <div class="container   mx-auto flex flex-col  items-center  mt-8">
+    <?php foreach ($data['wikis'] as $wiki) : ?>
+      <!-- Wiki Card -->
+      <div class="w-1/2 w-full md:w-1/2 lg:w-1/3 xl:w-1/2 h-80   bg-white rounded-md overflow-hidden shadow-md transition-transform transform hover:scale-105 mb-4">
+        <div class="text-wrap flex flex-col w-full">
 
 
-                </div>
-                <h2 class=" text-2xl font-bold mb-  w-4/5 text-gray-800 mt-0 px-4"><?php echo $wiki->title; ?></h2>
+          <div class="flex justify-end inline p-2">
 
-            </div>
+            <!-- Add delete button and form -->
 
-            <div class="p-6 mt-12">
-                <p class="whitespace-normal w-full text-gray-600 mb-4  break-words overflow-hidden" style="text-overflow: ellipsis; white-space: nowrap;"><?php echo $wiki->content; ?>.</p>
-                <div class="flex items-center">
-                    <?php if (property_exists($wiki, 'category_name')): ?>
-                        <span class="text-sm  mr-2">Category:</span>
-                        <p class="text-white  p-1 rounded rounded-2 bg-gray-500"><?php echo $wiki->category_name; ?></p>
-                    <?php endif; ?>
-                </div>
 
-                
-                <!-- Display Tags -->
-                <div class="mt-2 flex items-center">
-                    <span class="text-sm text-gray-500 mr-2">Tags:</span>
-                   
-                        <p class="card-text text-white p-1 rounded rounded-2 bg-green-600">#<?php echo implode('/', (array)$wiki->tags); ?></p>
-                        
-                    
-                    <!-- <p class="text-blue-500">Tag2</p> -->
-                  
-                </div>
-            </div>
+            <a href="<?php echo URLROOT; ?>/wikis/archive/<?php echo $wiki->wiki_id; ?>" class="m-2 inline-block"><i class="fa-regular fa-eye-slash"></i></a>
+
+
+
+
+
+          </div>
+          <h2 class=" text-2xl font-bold mb-  w-4/5 text-gray-800 mt-0 px-4"><?php echo $wiki->title; ?></h2>
+
         </div>
+
+        <div class="p-6 mt-12">
+          <p class="whitespace-normal w-full text-gray-600 mb-4  break-words overflow-hidden" style="text-overflow: ellipsis; white-space: nowrap;"><?php echo $wiki->content; ?>.</p>
+          <div class="flex items-center">
+            <?php if (property_exists($wiki, 'category_name')) : ?>
+              <span class="text-sm  mr-2">Category:</span>
+              <p class="text-white  p-1 rounded rounded-2 bg-gray-500"><?php echo $wiki->category_name; ?></p>
+            <?php endif; ?>
+          </div>
+
+
+          <!-- Display Tags -->
+          <div class="mt-2 flex flex-between w-full items-center">
+            <div class="flex w-full gap-2">
+              <span class="text-sm text-gray-500 mr-2">Tags:</span>
+              <p class="card-text text-white p-1 rounded rounded-2 bg-green-600">
+                #<?php echo implode('/', (array)$wiki->tags); ?></p>
+            </div>
+            <div class="p-2 w-full  flex justify-end">
+              <a href="<?php echo URLROOT; ?>/wikis/show/<?php echo $wiki->wiki_id; ?>" class="  text-black p-2  border-2 border-green-400 rounded-full hover:bg-green-400 hover:text-white">
+                Read More
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
     <?php endforeach; ?>
-</div>
+  </div>
 
 
 
-    <!-- Display search results here -->
+  <!-- Display search results here -->
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('searchInput');
     const searchResultsContainer = document.getElementById('searchResultsContainer');
 
-    searchInput.addEventListener('input', function () {
-        const searchTerm = searchInput.value.trim();
+    searchInput.addEventListener('input', function() {
+      const searchTerm = searchInput.value.trim();
 
-        // Check if the search term is empty
-        if (searchTerm === '') {
-            // Clear the search results container
-            searchResultsContainer.innerHTML = '';
-            return;
+      // Check if the search term is empty
+      if (searchTerm === '') {
+        // Clear the search results container
+        searchResultsContainer.innerHTML = '';
+        return;
+      }
+
+      // Perform AJAX request
+      const xhr = new XMLHttpRequest();
+
+      xhr.open('GET', `<?php echo URLROOT; ?>/Wikis/search?search=${searchTerm}`, true);
+
+      xhr.onload = function() {
+        if (xhr.status >= 200 && xhr.status < 400) {
+          // Success! Handle the response and update the content
+          const response = JSON.parse(xhr.responseText);
+          // Update the content based on the response
+          updateSearchResults(response);
+        } else {
+          // Error handling
+          console.error('Request failed');
         }
+      };
 
-        // Perform AJAX request
-        const xhr = new XMLHttpRequest();
+      xhr.onerror = function() {
+        // Network error
+        console.error('Network error');
+      };
 
-        xhr.open('GET', `<?php echo URLROOT; ?>/Wikis/search?search=${searchTerm}`, true);
-
-        xhr.onload = function () {
-            if (xhr.status >= 200 && xhr.status < 400) {
-                // Success! Handle the response and update the content
-                const response = JSON.parse(xhr.responseText);
-                // Update the content based on the response
-                updateSearchResults(response);
-            } else {
-                // Error handling
-                console.error('Request failed');
-            }
-        };
-
-        xhr.onerror = function () {
-            // Network error
-            console.error('Network error');
-        };
-
-        xhr.send();
+      xhr.send();
     });
 
     function updateSearchResults(results) {
-        // Clear previous results
-        searchResultsContainer.innerHTML = '';
+      // Clear previous results
+      searchResultsContainer.innerHTML = '';
 
-        if (results.length > 0) {
-            // Display the search results
-            results.forEach(result => {
-                const resultElement = document.createElement('div');
-                resultElement.classList.add('search-result');
+      if (results.length > 0) {
+        // Display the search results
+        results.forEach(result => {
+          const resultElement = document.createElement('div');
+          resultElement.classList.add('search-result');
 
-                // Display result data (customize based on your data structure)
-                resultElement.innerHTML = `
+          // Display result data (customize based on your data structure)
+          resultElement.innerHTML = `
                 <div class="container   mx-auto flex flex-col  items-center  mt-8">
                     <div class="w-1/2 w-full md:w-1/2 lg:w-1/3 xl:w-1/2 h-80   bg-white rounded-md overflow-hidden shadow-md transition-transform transform hover:scale-105 mb-4">
                         <div class="text-wrap flex flex-col w-full">
@@ -222,16 +216,16 @@ document.addEventListener('DOMContentLoaded', function () {
                     <hr>
                 `;
 
-                searchResultsContainer.appendChild(resultElement);
-            });
-        } else {
-            // Display a message when no results are found
-            const noResultsMessage = document.createElement('p');
-            noResultsMessage.textContent = 'No results found.';
-            searchResultsContainer.appendChild(noResultsMessage);
-        }
+          searchResultsContainer.appendChild(resultElement);
+        });
+      } else {
+        // Display a message when no results are found
+        const noResultsMessage = document.createElement('p');
+        noResultsMessage.textContent = 'No results found.';
+        searchResultsContainer.appendChild(noResultsMessage);
+      }
     }
-});
+  });
 </script>
 
 

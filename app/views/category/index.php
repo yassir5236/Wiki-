@@ -56,7 +56,7 @@
           </a>
         </li>
         <li>
-          <a class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700" href="<?php echo URLROOT; ?>/users/logout"><span class="mr-2">📊</span>Logout</a>
+          <a class="flex items-center text-base lg:text-lg py-2 px-2 lg:px-4 rounded transition duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-700" href="<?php echo URLROOT; ?>/users/logout"><span class="mr-2">🔒</span>Logout</a>
         </li>
       </ul>
     </nav>
@@ -105,6 +105,23 @@
         <?php endforeach; ?>
     <?php endif; ?>
 </div>
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelector('form').addEventListener('submit', function (e) {
+      let categoryNameInput = document.querySelector('[name="category_name"]');
+      if (!categoryNameInput.value.trim()) {
+        alert('Veuillez entrer une valeur pour la catégorie');
+        e.preventDefault();
+        return;
+      }
+    });
+  });
+</script>
+
+
 
 
 <script>

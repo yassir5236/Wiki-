@@ -11,7 +11,7 @@ class Category
 
     public function getCategories()
     {
-        $this->db->query('SELECT * FROM categories');
+        $this->db->query('SELECT * FROM categories ORDER BY category_id DESC');
         $results = $this->db->resultSet();
         return $results;
     }

@@ -12,7 +12,7 @@
         
        
             <?php if (!empty($data['category_name_err'])) : ?>
-                <p class="text-red-500 text-xs italic"><?php echo $data['title_err']; ?></p>
+                <p class="text-red-500 text-xs italic"><?php echo $data['category_name_err']; ?></p>
             <?php endif; ?>
         </div>
 
